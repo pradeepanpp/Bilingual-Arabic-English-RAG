@@ -18,7 +18,7 @@ Arabic–English retrieval-augmented generation (RAG) for PDFs/URLs with OCR fal
 ![Demo GIF](assets/rag_project.gif)
 
 
-> If you keep media in a folder, update path: `assets/RAG_PROJECT_DEMO_highlight.gif`  
+> If you keep media in a folder, update path: `assets/rag_project.gif`  
 > Optional: add a longer video link here (YouTube/Drive).
 
 ## Overview
