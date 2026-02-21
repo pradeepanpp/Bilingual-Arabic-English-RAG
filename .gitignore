@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment / secrets
+.env
+.env.*.local
+
+# App outputs / logs
+scores.json
+*.log
+logs/
+outputs/
+tmp/
+
+# Streamlit cache
+.streamlit/
+.streamlit/secrets.toml
+
+# OS files
+.DS_Store
+Thumbs.db
