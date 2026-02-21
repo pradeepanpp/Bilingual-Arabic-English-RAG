@@ -12,7 +12,9 @@ Arabic–English retrieval-augmented generation (RAG) for PDFs/URLs with OCR fal
 </div>
 
 ## Demo
-![Demo](RAG_PROJECT_DEMO_highlight.gif)
+<img width="1631" height="846" alt="Screenshot 2026-02-21 143913" src="https://github.com/user-attachments/assets/f923780d-5e36-44c9-9a9f-a3e327ff020d" />
+) <img width="1629" height="846" alt="Screenshot 2026-02-21 143625" src="https://github.com/user-attachments/assets/f1b69286-e220-4be3-9a17-53cfed0454da" />
+](assets/demo.mp4)
 
 > If you keep media in a folder, update path: `assets/RAG_PROJECT_DEMO_highlight.gif`  
 > Optional: add a longer video link here (YouTube/Drive).
@@ -28,7 +30,7 @@ This project implements a bilingual (Arabic–English) RAG pipeline that answers
 - **Streamlit UI** with optional RTL layout for Arabic
 - **Optional evaluation** using RAGAS; results can be saved to `scores.json`
 
-## Architecture (high level)
+## Architecture 
 1. Ingest documents (PDF/URL) → extract text (OCR fallback if needed)
 2. Chunk text → embed chunks → store in FAISS
 3. For each query: embed query → retrieve top-k chunks → generate answer grounded in retrieved context
