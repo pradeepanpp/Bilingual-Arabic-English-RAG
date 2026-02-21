@@ -11,15 +11,15 @@ Arabic–English retrieval-augmented generation (RAG) for PDFs/URLs with OCR fal
 
 </div>
 
-## Demo
+
+
+
 <img width="1631" height="846" alt="Screenshot 2026-02-21 143913" src="https://github.com/user-attachments/assets/f923780d-5e36-44c9-9a9f-a3e327ff020d" />
 ) <img width="1629" height="846" alt="Screenshot 2026-02-21 143625" src="https://github.com/user-attachments/assets/f1b69286-e220-4be3-9a17-53cfed0454da" />
-]
-![Demo GIF](assets/rag_project.gif)
 
-
-> If you keep media in a folder, update path: `assets/rag_project.gif`  
-> Optional: add a longer video link here (YouTube/Drive).
+<p>
+  <img src="assets/rag_project.gif" width="900" />
+</p>
 
 ## Overview
 This project implements a bilingual (Arabic–English) RAG pipeline that answers questions from user-provided documents while showing source citations. It is designed to work with mixed-quality PDFs, including scanned documents via OCR fallback.
@@ -51,7 +51,7 @@ uv sync
 
 # 2) Configure environment
 cp .env.example .env
-# set OPENAI_API_KEY (and GROQ_API_KEY if you enable it)
+# set OPENAI_API_KEY 
 
 # 3) Run the app
 uv run streamlit run streamlit_app.py
