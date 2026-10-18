@@ -3,18 +3,18 @@
   "model": "intfloat/multilingual-e5-small",
   "retrieval": {
     "pdfplumber": {
-      "chunks": 392,
-      "ms_per_query": 29.5,
+      "chunks": 413,
+      "ms_per_query": 16.6,
       "page": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.214,
-          "recall_at_k": 0.333,
+          "hit_at_1": 0.19,
+          "recall_at_k": 0.357,
           "recall_at_k_ci95": [
-            0.21,
-            0.484
+            0.23,
+            0.508
           ],
-          "mrr": 0.266
+          "mrr": 0.251
         },
         "en->ar": {
           "n": 14,
@@ -38,45 +38,45 @@
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.7,
+          "hit_at_1": 0.6,
           "recall_at_k": 0.9,
           "recall_at_k_ci95": [
             0.596,
             0.982
           ],
-          "mrr": 0.8
+          "mrr": 0.703
         },
         "ar->en": {
           "n": 8,
           "hit_at_1": 0.25,
-          "recall_at_k": 0.375,
+          "recall_at_k": 0.5,
           "recall_at_k_ci95": [
-            0.137,
-            0.694
+            0.215,
+            0.785
           ],
-          "mrr": 0.312
+          "mrr": 0.354
         },
         "cross-lingual": {
           "n": 22,
           "hit_at_1": 0.091,
-          "recall_at_k": 0.136,
+          "recall_at_k": 0.182,
           "recall_at_k_ci95": [
-            0.047,
-            0.333
+            0.073,
+            0.385
           ],
-          "mrr": 0.114
+          "mrr": 0.129
         }
       },
       "fact": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.071,
+          "hit_at_1": 0.143,
           "recall_at_k": 0.262,
           "recall_at_k_ci95": [
             0.153,
             0.411
           ],
-          "mrr": 0.152
+          "mrr": 0.185
         },
         "en->ar": {
           "n": 14,
@@ -100,49 +100,49 @@
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.3,
-          "recall_at_k": 0.8,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.7,
           "recall_at_k_ci95": [
-            0.49,
-            0.943
+            0.397,
+            0.892
           ],
-          "mrr": 0.52
+          "mrr": 0.478
         },
         "ar->en": {
           "n": 8,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.25,
+          "hit_at_1": 0.25,
+          "recall_at_k": 0.375,
           "recall_at_k_ci95": [
-            0.071,
-            0.591
+            0.137,
+            0.694
           ],
-          "mrr": 0.083
+          "mrr": 0.312
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.091,
+          "hit_at_1": 0.091,
+          "recall_at_k": 0.136,
           "recall_at_k_ci95": [
-            0.025,
-            0.278
+            0.047,
+            0.333
           ],
-          "mrr": 0.03
+          "mrr": 0.114
         }
       }
     },
     "pymupdf": {
-      "chunks": 377,
-      "ms_per_query": 16.0,
+      "chunks": 437,
+      "ms_per_query": 16.1,
       "page": {
         "all": {
           "n": 42,
           "hit_at_1": 0.357,
-          "recall_at_k": 0.714,
+          "recall_at_k": 0.69,
           "recall_at_k_ci95": [
-            0.564,
-            0.828
+            0.54,
+            0.809
           ],
-          "mrr": 0.483
+          "mrr": 0.469
         },
         "en->ar": {
           "n": 14,
@@ -152,125 +152,125 @@
             0.268,
             0.732
           ],
-          "mrr": 0.214
+          "mrr": 0.199
         },
         "ar->ar": {
           "n": 10,
-          "hit_at_1": 0.2,
+          "hit_at_1": 0.3,
           "recall_at_k": 0.9,
           "recall_at_k_ci95": [
             0.596,
             0.982
           ],
-          "mrr": 0.445
+          "mrr": 0.492
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.7,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.783
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.625,
-          "recall_at_k": 0.625,
-          "recall_at_k_ci95": [
-            0.306,
-            0.863
-          ],
-          "mrr": 0.625
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.273,
-          "recall_at_k": 0.545,
-          "recall_at_k_ci95": [
-            0.347,
-            0.731
-          ],
-          "mrr": 0.364
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.19,
-          "recall_at_k": 0.333,
-          "recall_at_k_ci95": [
-            0.21,
-            0.484
-          ],
-          "mrr": 0.248
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.071,
-          "recall_at_k_ci95": [
-            0.013,
-            0.315
-          ],
-          "mrr": 0.036
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.1,
-          "recall_at_k_ci95": [
-            0.018,
-            0.404
-          ],
-          "mrr": 0.05
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.5,
+          "hit_at_1": 0.8,
           "recall_at_k": 0.8,
           "recall_at_k_ci95": [
             0.49,
             0.943
           ],
-          "mrr": 0.617
+          "mrr": 0.8
         },
         "ar->en": {
           "n": 8,
           "hit_at_1": 0.375,
-          "recall_at_k": 0.5,
+          "recall_at_k": 0.625,
           "recall_at_k_ci95": [
-            0.215,
-            0.785
+            0.306,
+            0.863
           ],
-          "mrr": 0.406
+          "mrr": 0.5
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.136,
-          "recall_at_k": 0.227,
+          "hit_at_1": 0.182,
+          "recall_at_k": 0.545,
           "recall_at_k_ci95": [
-            0.101,
-            0.434
+            0.347,
+            0.731
           ],
-          "mrr": 0.17
+          "mrr": 0.308
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.167,
+          "recall_at_k": 0.31,
+          "recall_at_k_ci95": [
+            0.191,
+            0.46
+          ],
+          "mrr": 0.224
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.143,
+          "recall_at_k_ci95": [
+            0.04,
+            0.399
+          ],
+          "mrr": 0.042
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.0,
+          "recall_at_k_ci95": [
+            0.0,
+            0.278
+          ],
+          "mrr": 0.0
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.6,
+          "recall_at_k_ci95": [
+            0.313,
+            0.832
+          ],
+          "mrr": 0.55
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.25,
+          "recall_at_k": 0.625,
+          "recall_at_k_ci95": [
+            0.306,
+            0.863
+          ],
+          "mrr": 0.417
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.091,
+          "recall_at_k": 0.318,
+          "recall_at_k_ci95": [
+            0.164,
+            0.527
+          ],
+          "mrr": 0.178
         }
       }
     },
     "pymupdf+ocr": {
-      "chunks": 450,
-      "ms_per_query": 17.4,
+      "chunks": 391,
+      "ms_per_query": 16.6,
       "page": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.548,
+          "hit_at_1": 0.524,
           "recall_at_k": 0.738,
           "recall_at_k_ci95": [
             0.589,
             0.847
           ],
-          "mrr": 0.613
+          "mrr": 0.603
         },
         "en->ar": {
           "n": 14,
@@ -280,7 +280,7 @@
             0.268,
             0.732
           ],
-          "mrr": 0.243
+          "mrr": 0.267
         },
         "ar->ar": {
           "n": 10,
@@ -290,207 +290,17 @@
             0.722,
             1.0
           ],
-          "mrr": 0.95
+          "mrr": 0.933
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.7,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.783
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.625,
-          "recall_at_k": 0.625,
-          "recall_at_k_ci95": [
-            0.306,
-            0.863
-          ],
-          "mrr": 0.625
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.318,
-          "recall_at_k": 0.545,
-          "recall_at_k_ci95": [
-            0.347,
-            0.731
-          ],
-          "mrr": 0.382
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.429,
-          "recall_at_k": 0.643,
-          "recall_at_k_ci95": [
-            0.492,
-            0.77
-          ],
-          "mrr": 0.502
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.071,
-          "recall_at_k": 0.357,
-          "recall_at_k_ci95": [
-            0.163,
-            0.612
-          ],
-          "mrr": 0.154
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.9,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.95
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.5,
+          "hit_at_1": 0.8,
           "recall_at_k": 0.8,
           "recall_at_k_ci95": [
             0.49,
             0.943
           ],
-          "mrr": 0.617
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.5,
-          "recall_at_k_ci95": [
-            0.215,
-            0.785
-          ],
-          "mrr": 0.406
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.182,
-          "recall_at_k": 0.409,
-          "recall_at_k_ci95": [
-            0.233,
-            0.613
-          ],
-          "mrr": 0.245
-        }
-      }
-    },
-    "+translation": {
-      "chunks": 450,
-      "ms_per_query": 992.3,
-      "page": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.571,
-          "recall_at_k": 0.905,
-          "recall_at_k_ci95": [
-            0.779,
-            0.962
-          ],
-          "mrr": 0.69
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.214,
-          "recall_at_k": 0.929,
-          "recall_at_k_ci95": [
-            0.685,
-            0.987
-          ],
-          "mrr": 0.439
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.9
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.833
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.625,
-          "recall_at_k": 0.75,
-          "recall_at_k_ci95": [
-            0.409,
-            0.929
-          ],
-          "mrr": 0.688
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.364,
-          "recall_at_k": 0.864,
-          "recall_at_k_ci95": [
-            0.667,
-            0.953
-          ],
-          "mrr": 0.53
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.429,
-          "recall_at_k": 0.881,
-          "recall_at_k_ci95": [
-            0.75,
-            0.948
-          ],
-          "mrr": 0.587
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.143,
-          "recall_at_k": 0.929,
-          "recall_at_k_ci95": [
-            0.685,
-            0.987
-          ],
-          "mrr": 0.38
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.9
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.5,
-          "recall_at_k": 0.8,
-          "recall_at_k_ci95": [
-            0.49,
-            0.943
-          ],
-          "mrr": 0.633
+          "mrr": 0.8
         },
         "ar->en": {
           "n": 8,
@@ -500,43 +310,105 @@
             0.409,
             0.929
           ],
-          "mrr": 0.5
+          "mrr": 0.531
         },
         "cross-lingual": {
           "n": 22,
           "hit_at_1": 0.227,
-          "recall_at_k": 0.864,
+          "recall_at_k": 0.591,
           "recall_at_k_ci95": [
-            0.667,
-            0.953
+            0.387,
+            0.767
           ],
-          "mrr": 0.423
+          "mrr": 0.363
         }
-      }
-    },
-    "+1000-char chunks": {
-      "chunks": 232,
-      "ms_per_query": 32.5,
-      "page": {
+      },
+      "fact": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.476,
-          "recall_at_k": 0.929,
+          "hit_at_1": 0.405,
+          "recall_at_k": 0.69,
           "recall_at_k_ci95": [
-            0.81,
-            0.975
+            0.54,
+            0.809
           ],
-          "mrr": 0.663
+          "mrr": 0.506
         },
         "en->ar": {
           "n": 14,
-          "hit_at_1": 0.214,
+          "hit_at_1": 0.071,
+          "recall_at_k": 0.5,
+          "recall_at_k_ci95": [
+            0.268,
+            0.732
+          ],
+          "mrr": 0.21
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.9,
           "recall_at_k": 1.0,
           "recall_at_k_ci95": [
-            0.785,
+            0.722,
             1.0
           ],
-          "mrr": 0.53
+          "mrr": 0.933
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.6,
+          "recall_at_k_ci95": [
+            0.313,
+            0.832
+          ],
+          "mrr": 0.55
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.25,
+          "recall_at_k": 0.75,
+          "recall_at_k_ci95": [
+            0.409,
+            0.929
+          ],
+          "mrr": 0.438
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.136,
+          "recall_at_k": 0.591,
+          "recall_at_k_ci95": [
+            0.387,
+            0.767
+          ],
+          "mrr": 0.292
+        }
+      }
+    },
+    "+translation": {
+      "chunks": 391,
+      "ms_per_query": 996.5,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.619,
+          "recall_at_k": 0.857,
+          "recall_at_k_ci95": [
+            0.722,
+            0.933
+          ],
+          "mrr": 0.715
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.786,
+          "recall_at_k_ci95": [
+            0.524,
+            0.924
+          ],
+          "mrr": 0.502
         },
         "ar->ar": {
           "n": 10,
@@ -546,99 +418,227 @@
             0.722,
             1.0
           ],
-          "mrr": 0.875
+          "mrr": 0.9
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.6,
-          "recall_at_k": 0.9,
+          "hit_at_1": 0.8,
+          "recall_at_k": 0.8,
           "recall_at_k_ci95": [
-            0.596,
-            0.982
+            0.49,
+            0.943
           ],
-          "mrr": 0.717
+          "mrr": 0.8
         },
         "ar->en": {
           "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.75,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.875,
           "recall_at_k_ci95": [
-            0.409,
-            0.929
+            0.529,
+            0.978
           ],
-          "mrr": 0.562
+          "mrr": 0.75
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.273,
-          "recall_at_k": 0.909,
-          "recall_at_k_ci95": [
-            0.722,
-            0.975
-          ],
-          "mrr": 0.542
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.452,
-          "recall_at_k": 0.881,
-          "recall_at_k_ci95": [
-            0.75,
-            0.948
-          ],
-          "mrr": 0.631
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.214,
-          "recall_at_k": 0.929,
-          "recall_at_k_ci95": [
-            0.685,
-            0.987
-          ],
-          "mrr": 0.506
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.7,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.825
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.6,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.717
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.625,
-          "recall_at_k_ci95": [
-            0.306,
-            0.863
-          ],
-          "mrr": 0.5
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.273,
+          "hit_at_1": 0.455,
           "recall_at_k": 0.818,
           "recall_at_k_ci95": [
             0.615,
             0.927
           ],
-          "mrr": 0.504
+          "mrr": 0.592
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.429,
+          "recall_at_k": 0.81,
+          "recall_at_k_ci95": [
+            0.667,
+            0.9
+          ],
+          "mrr": 0.58
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.286,
+          "recall_at_k": 0.786,
+          "recall_at_k_ci95": [
+            0.524,
+            0.924
+          ],
+          "mrr": 0.455
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.6,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.783
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.6,
+          "recall_at_k_ci95": [
+            0.313,
+            0.832
+          ],
+          "mrr": 0.533
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.604
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.318,
+          "recall_at_k": 0.818,
+          "recall_at_k_ci95": [
+            0.615,
+            0.927
+          ],
+          "mrr": 0.509
+        }
+      }
+    },
+    "+1000-char chunks": {
+      "chunks": 204,
+      "ms_per_query": 32.2,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.524,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.81,
+            0.975
+          ],
+          "mrr": 0.679
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.685,
+            0.987
+          ],
+          "mrr": 0.56
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.9
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.6,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.7
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.583
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.364,
+          "recall_at_k": 0.909,
+          "recall_at_k_ci95": [
+            0.722,
+            0.975
+          ],
+          "mrr": 0.568
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.476,
+          "recall_at_k": 0.857,
+          "recall_at_k_ci95": [
+            0.722,
+            0.933
+          ],
+          "mrr": 0.619
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.685,
+            0.987
+          ],
+          "mrr": 0.554
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.9
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.6,
+          "recall_at_k_ci95": [
+            0.313,
+            0.832
+          ],
+          "mrr": 0.475
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.562
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.364,
+          "recall_at_k": 0.909,
+          "recall_at_k_ci95": [
+            0.722,
+            0.975
+          ],
+          "mrr": 0.557
         }
       }
     }
@@ -798,20 +798,20 @@
       {
         "id": "att-en-02",
         "direction": "en->en",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 5,
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 5
+        "fact_rank": 4
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -823,7 +823,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-07",
@@ -835,7 +835,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 5
       },
       {
         "id": "att-en-09",
@@ -846,8 +846,8 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-01",
@@ -859,12 +859,12 @@
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 6
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
-        "page_rank": 1,
+        "page_rank": 3,
         "fact_rank": null
       },
       {
@@ -882,14 +882,14 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-07",
         "direction": "ar->en",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "att-ar-08",
@@ -902,13 +902,13 @@
       {
         "id": "law-en-01",
         "direction": "en->ar",
-        "page_rank": 4,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-02",
         "direction": "en->ar",
-        "page_rank": 2,
+        "page_rank": 6,
         "fact_rank": null
       },
       {
@@ -926,13 +926,13 @@
       {
         "id": "law-en-05",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "law-en-06",
         "direction": "en->ar",
-        "page_rank": 6,
+        "page_rank": 5,
         "fact_rank": null
       },
       {
@@ -950,26 +950,26 @@
       {
         "id": "law-en-09",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": null
+        "page_rank": 3,
+        "fact_rank": 4
       },
       {
         "id": "law-en-10",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": null,
+        "page_rank": 4,
         "fact_rank": null
       },
       {
         "id": "law-en-12",
         "direction": "en->ar",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-13",
@@ -980,31 +980,31 @@
       {
         "id": "law-en-14",
         "direction": "en->ar",
-        "page_rank": 1,
+        "page_rank": 2,
         "fact_rank": null
       },
       {
         "id": "law-ar-01",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
-      },
-      {
-        "id": "law-ar-02",
-        "direction": "ar->ar",
-        "page_rank": 6,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
-        "id": "law-ar-03",
+        "id": "law-ar-02",
         "direction": "ar->ar",
         "page_rank": 4,
         "fact_rank": null
       },
       {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": 3,
+        "fact_rank": null
+      },
+      {
         "id": "law-ar-04",
         "direction": "ar->ar",
-        "page_rank": 5,
+        "page_rank": 6,
         "fact_rank": null
       },
       {
@@ -1022,19 +1022,19 @@
       {
         "id": "law-ar-07",
         "direction": "ar->ar",
-        "page_rank": 2,
+        "page_rank": 3,
         "fact_rank": null
       },
       {
         "id": "law-ar-08",
         "direction": "ar->ar",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "law-ar-09",
         "direction": "ar->ar",
-        "page_rank": 1,
+        "page_rank": 2,
         "fact_rank": null
       },
       {
@@ -1053,19 +1053,19 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1077,7 +1077,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "att-en-07",
@@ -1089,7 +1089,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-en-09",
@@ -1100,26 +1100,26 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": null
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1136,8 +1136,8 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-07",
@@ -1168,7 +1168,7 @@
       {
         "id": "law-en-03",
         "direction": "en->ar",
-        "page_rank": 5,
+        "page_rank": null,
         "fact_rank": null
       },
       {
@@ -1187,19 +1187,19 @@
         "id": "law-en-06",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 5
+        "fact_rank": 2
       },
       {
         "id": "law-en-07",
         "direction": "en->ar",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 5,
+        "fact_rank": 5
       },
       {
         "id": "law-en-08",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-09",
@@ -1210,8 +1210,8 @@
       {
         "id": "law-en-10",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-en-11",
@@ -1222,8 +1222,8 @@
       {
         "id": "law-en-12",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": null
+        "page_rank": 2,
+        "fact_rank": 5
       },
       {
         "id": "law-en-13",
@@ -1252,8 +1252,8 @@
       {
         "id": "law-ar-03",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-ar-04",
@@ -1307,19 +1307,19 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1331,7 +1331,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "att-en-07",
@@ -1343,7 +1343,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-en-09",
@@ -1354,26 +1354,26 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": null
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1390,8 +1390,8 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-07",
@@ -1402,8 +1402,8 @@
       {
         "id": "att-ar-08",
         "direction": "ar->en",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 4,
+        "fact_rank": 6
       }
     ],
     "+translation": [
@@ -1416,8 +1416,8 @@
       {
         "id": "law-en-02",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 5,
+        "fact_rank": 5
       },
       {
         "id": "law-en-03",
@@ -1428,8 +1428,8 @@
       {
         "id": "law-en-04",
         "direction": "en->ar",
-        "page_rank": 5,
-        "fact_rank": 5
+        "page_rank": 6,
+        "fact_rank": 6
       },
       {
         "id": "law-en-05",
@@ -1441,13 +1441,13 @@
         "id": "law-en-06",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "law-en-07",
         "direction": "en->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-08",
@@ -1470,26 +1470,26 @@
       {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": 5,
-        "fact_rank": 5
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "law-en-12",
         "direction": "en->ar",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": 3
       },
       {
         "id": "law-en-13",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "law-en-14",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-01",
@@ -1507,7 +1507,7 @@
         "id": "law-ar-03",
         "direction": "ar->ar",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "law-ar-04",
@@ -1536,8 +1536,8 @@
       {
         "id": "law-ar-08",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 1,
+        "fact_rank": 3
       },
       {
         "id": "law-ar-09",
@@ -1548,8 +1548,8 @@
       {
         "id": "law-ar-10",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-en-01",
@@ -1561,7 +1561,7 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
@@ -1573,7 +1573,7 @@
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1585,7 +1585,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 3
       },
       {
         "id": "att-en-07",
@@ -1597,7 +1597,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-09",
@@ -1608,8 +1608,8 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
@@ -1621,13 +1621,13 @@
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1644,8 +1644,8 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-07",
@@ -1656,8 +1656,8 @@
       {
         "id": "att-ar-08",
         "direction": "ar->en",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 1,
+        "fact_rank": 2
       }
     ],
     "+1000-char chunks": [
@@ -1670,20 +1670,20 @@
       {
         "id": "law-en-02",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-03",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-04",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "law-en-05",
@@ -1700,14 +1700,14 @@
       {
         "id": "law-en-07",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 4,
+        "fact_rank": 6
       },
       {
         "id": "law-en-08",
         "direction": "en->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-09",
@@ -1724,20 +1724,20 @@
       {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "law-en-12",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-13",
         "direction": "en->ar",
-        "page_rank": 6,
-        "fact_rank": 6
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "law-en-14",
@@ -1748,8 +1748,8 @@
       {
         "id": "law-ar-01",
         "direction": "ar->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-02",
@@ -1761,7 +1761,7 @@
         "id": "law-ar-03",
         "direction": "ar->ar",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "law-ar-04",
@@ -1772,8 +1772,8 @@
       {
         "id": "law-ar-05",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-ar-06",
@@ -1790,8 +1790,8 @@
       {
         "id": "law-ar-08",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-09",
@@ -1808,20 +1808,20 @@
       {
         "id": "att-en-01",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "att-en-02",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 1,
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-04",
@@ -1832,8 +1832,8 @@
       {
         "id": "att-en-05",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-en-06",
@@ -1850,8 +1850,8 @@
       {
         "id": "att-en-08",
         "direction": "en->en",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "att-en-09",
@@ -1862,8 +1862,8 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 4,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
@@ -1880,8 +1880,8 @@
       {
         "id": "att-ar-03",
         "direction": "ar->en",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 6
       },
       {
         "id": "att-ar-04",
@@ -1898,20 +1898,20 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": 2,
-        "fact_rank": null
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-07",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-08",
         "direction": "ar->en",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 1,
+        "fact_rank": 1
       }
     ],
     "answers": [
@@ -1925,7 +1925,7 @@
       },
       {
         "id": "law-en-02",
-        "answer": "An employer must give at least 14 days written notice to end a contract during the probation period [3].",
+        "answer": "An employer must give at least 14 days written notice to end a contract during the probation period [5].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1933,23 +1933,23 @@
       },
       {
         "id": "law-en-03",
-        "answer": "The minimum age for employing a person is fifteen years old, as stated in the sources [2].",
+        "answer": "The minimum age for employing a person is 18 years, except for work permits for minors and training or student employment permits [1].",
         "refused": false,
         "language_ok": true,
-        "correct": true,
+        "correct": false,
         "cited": true
       },
       {
         "id": "law-en-04",
-        "answer": "A juvenile may work a maximum of six hours per day, and this must include one or more rest periods totaling at least one hour. Additionally, the juvenile should not work more than four consecutive hours without a break [5].",
+        "answer": "A juvenile may work a maximum of six hours per day, and this must include at least one break period totaling no less than one hour. Additionally, the juvenile should not work more than four consecutive hours without a break [6].",
         "refused": false,
         "language_ok": true,
-        "correct": true,
+        "correct": false,
         "cited": true
       },
       {
         "id": "law-en-05",
-        "answer": "The maximum normal working hours are eight hours per day and forty-eight hours per week [1].",
+        "answer": "The maximum normal working hours are eight hours per day or forty-eight hours per week [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1957,7 +1957,7 @@
       },
       {
         "id": "law-en-06",
-        "answer": "An employee is entitled to extra pay for overtime hours calculated based on their basic wage, with a minimum increase of 25% for overtime hours beyond regular working hours. If the overtime occurs between 10 PM and 4 AM, the employee is entitled to a minimum increase of 50% on their basic wage for those hours [2][3].",
+        "answer": "An employee is entitled to extra pay for overtime hours at a rate equal to their regular wage plus an additional increase of no less than 25% for regular overtime hours. If the overtime occurs between 10 PM and 4 AM, the employee is entitled to an additional increase of no less than 50% of their regular wage [1][3].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1965,7 +1965,7 @@
       },
       {
         "id": "law-en-07",
-        "answer": "An employee is entitled to a minimum of thirty days of paid annual leave for each year of service [3].",
+        "answer": "An employee is entitled to a minimum of thirty days of paid annual leave for each year of service [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1981,7 +1981,7 @@
       },
       {
         "id": "law-en-09",
-        "answer": "After the probation period, a worker is entitled to a maximum of 90 days of sick leave per year, which is paid as follows: the first 15 days are paid at full salary, the next 30 days at half salary, and the remaining days are unpaid [2].",
+        "answer": "After the probation period, an employee is entitled to a maximum of 90 days of sick leave per year, which can be continuous or intermittent. The payment for this sick leave is structured as follows: the first 15 days are paid at full salary, the next 30 days are paid at half salary, and the remaining days are unpaid [3].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1989,7 +1989,7 @@
       },
       {
         "id": "law-en-10",
-        "answer": "Employees are entitled to five days of bereavement leave in the event of the death of a spouse [1].",
+        "answer": "Employees are entitled to five days of bereavement leave when a spouse dies [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -1997,7 +1997,7 @@
       },
       {
         "id": "law-en-11",
-        "answer": "The minimum notice period to terminate an employment contract is 30 days, and the maximum is 90 days, depending on the duration of service. Specifically, if the service duration is less than 5 years, the notice period is 30 days; if it is more than 5 years but less than 10 years, it is 60 days; and if it exceeds 10 years, it is 90 days [2][5].",
+        "answer": "The minimum and maximum notice periods to terminate an employment contract are as follows:\n\n- For a contract with a service duration of less than 5 years, the minimum notice period is 30 days.\n- For a contract with a service duration of more than 5 years but less than 10 years, the minimum notice period is 60 days.\n- For a contract with a service duration of more than 10 years, the minimum notice period is 90 days [2]. \n\nThe documents do not specify a maximum notice period.",
         "refused": false,
         "language_ok": true,
         "correct": false,
@@ -2005,7 +2005,7 @@
       },
       {
         "id": "law-en-12",
-        "answer": "The end-of-service gratuity for a foreign full-time worker is calculated based on the following criteria: \n\n1. For the first five years of service, the worker is entitled to 21 days of basic salary for each year of service.\n2. For any additional years beyond the first five, the worker is entitled to 30 days of basic salary for each year of service.\n3. The gratuity for any incomplete year of service is calculated proportionally based on the time worked, provided that the worker has completed at least one year of continuous service [3][6].",
+        "answer": "The end-of-service gratuity for a foreign full-time worker is calculated based on the basic salary as follows: \n\n- For the first five years of service, the worker is entitled to 21 days' salary for each year of service.\n- For each additional year beyond the first five years, the worker is entitled to 30 days' salary for each year of service.\n- The gratuity is also calculated for any parts of the year worked, provided the worker has completed at least one year of continuous service. \n\nDays of absence without pay are not included in the calculation of service duration [3][6].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2021,7 +2021,7 @@
       },
       {
         "id": "law-en-14",
-        "answer": "A working parent is entitled to 5 days of parental leave to care for their child, which can be taken continuously or intermittently within 6 months from the date of the child's birth [4].",
+        "answer": "A working parent is entitled to 5 days of parental leave after the birth of a child, which can be taken continuously or intermittently within 6 months from the date of the child's birth [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2029,7 +2029,7 @@
       },
       {
         "id": "law-ar-01",
-        "answer": "تستحق العاملة إجازة وضع مدتها 60 ستين يوماً، حيث تكون 45 خمسة وأربعين يوماً الأولى بأجر كامل، و15 خمسة عشر يوماً التي تليها بنصف أجر [1].",
+        "answer": "تستحق العاملة إجازة وضع مدتها 60 ستين يوما، حيث تكون 45 خمسة وأربعين يوما الأولى بأجر كامل و15 خمسة عشر يوما التي تليها بنصف أجر [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2037,7 +2037,7 @@
       },
       {
         "id": "law-ar-02",
-        "answer": "يستحق العامل إجازة سنوية بأجر كامل لا تقل عن ثلاثين يوماً عن كل سنة من سنوات خدمته لمدة، ويومين عن كل شهر إذا كانت مدة خدمته تزيد على ستة أشهر وتقل عن سنة [2].",
+        "answer": "يستحق العامل إجازة سنوية لا تقل عن ثلاثين يوماً عن كل سنة من سنوات خدمته، أو يومين عن كل شهر إذا كانت مدة خدمته تزيد على ستة أشهر وتقل عن سنة [2].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2045,7 +2045,7 @@
       },
       {
         "id": "law-ar-03",
-        "answer": "الحد الأقصى لساعات العمل الإضافية في اليوم الواحد هو ساعتين، ولا يجوز تشغيل العامل أكثر من ذلك إلا وفق الشروط والضوابط المحددة [1].",
+        "answer": "الحد الأقصى لساعات العمل الإضافية في اليوم الواحد هو ساعتين، ولا يجوز تشغيل العامل أكثر من ذلك إلا وفقاً للشروط والضوابط المحددة [2].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2085,7 +2085,7 @@
       },
       {
         "id": "law-ar-08",
-        "answer": "لا يستحق العامل إجازة مرضية مدفوعة الأجر خلال فترة التجربة ومع ذلك يجوز لصاحب العمل منحه إجازة مرضية بدون أجر بناءً على تقرير طبي صادر عن الجهة الطبية يتضمن ضرورة منح الإجازة [3].",
+        "answer": "لا يستحق العامل إجازة مرضية مدفوعة الأجر خلال فترة التجربة، ومع ذلك يجوز لصاحب العمل منحه إجازة مرضية بدون أجر بناءً على تقرير طبي صادر عن الجهة الطبية يتضمن ضرورة منح الإجازة [2].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2093,7 +2093,7 @@
       },
       {
         "id": "law-ar-09",
-        "answer": "يحق للعامل راحة أسبوعية مدفوعة لا تقل عن يوم واحد وفقاً لما ينص عليه عقد العمل أو اللائحة التنظيمية للعمل [1].",
+        "answer": "يحق للعامل راحة أسبوعية مدفوعة لا تقل عن يوم واحد وفقاً لما يحدده عقد العمل أو اللائحة التنظيمية للعمل [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2101,7 +2101,7 @@
       },
       {
         "id": "law-ar-10",
-        "answer": "إذا استدعت ظروف العمل تشغيل العامل أثناء أي من العطلات الرسمية، يجب على صاحب العمل تعويضه بيوم آخر للراحة مقابل كل يوم يعمل فيه أثناء العطلة، أو أن يدفع له أجر ذلك اليوم حسب الأجر المقرر بالنسبة إلى أيام العمل العادية مضافًا إليه زيادة لا تقل عن 50% من الأجر الأساسي لذلك اليوم [1].",
+        "answer": "يستحق العامل تعويضًا بيوم آخر للراحة مقابل كل يوم يعمل فيه أثناء العطلة الرسمية، أو أن يدفع له أجر ذلك اليوم حسب الأجر المقرر بالنسبة إلى أيام العمل العادية مضافًا إليه زيادة لا تقل عن 50% من الأجر الأساسي لذلك اليوم [2][4].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2117,11 +2117,11 @@
       },
       {
         "id": "att-en-02",
-        "answer": "The base Transformer uses 8 parallel attention heads [1].",
-        "refused": false,
+        "answer": "The documents do not contain this information.",
+        "refused": true,
         "language_ok": true,
-        "correct": true,
-        "cited": true
+        "correct": false,
+        "cited": false
       },
       {
         "id": "att-en-03",
@@ -2133,15 +2133,15 @@
       },
       {
         "id": "att-en-04",
-        "answer": "The documents do not contain this information.",
-        "refused": true,
+        "answer": "The big Transformer reached a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [1].",
+        "refused": false,
         "language_ok": true,
-        "correct": false,
-        "cited": false
+        "correct": true,
+        "cited": true
       },
       {
         "id": "att-en-05",
-        "answer": "The models were trained on one machine with 8 NVIDIA P100 GPUs. The base models were trained for a total of 100,000 steps or 12 hours [1].",
+        "answer": "The models were trained on one machine with 8 NVIDIA P100 GPUs. The base model trained for a total of 100,000 steps or 12 hours [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2149,7 +2149,7 @@
       },
       {
         "id": "att-en-06",
-        "answer": "The learning rate schedule used 4000 warmup steps [1].",
+        "answer": "The number of warmup steps used in the learning rate schedule was 4000 [3].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2165,7 +2165,7 @@
       },
       {
         "id": "att-en-08",
-        "answer": "The dot products are scaled by \\( \\frac{1}{\\sqrt{d_k}} \\) to counteract the effect of extremely small gradients that can occur during training. This scaling helps to maintain stable gradients and improve the learning process in the attention mechanism [2].",
+        "answer": "The dot products are scaled by \\( \\frac{1}{\\sqrt{d_k}} \\) to counteract the effect of large dot product values, which can occur when the components of the queries and keys are independent random variables. This scaling helps maintain stable gradients during training and improves the performance of the attention mechanism [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2173,10 +2173,10 @@
       },
       {
         "id": "att-en-09",
-        "answer": "The Transformer encodes the position of tokens using positional encodings in both the encoder and decoder stacks. It employs sinusoidal positional encoding with learned positional embeddings, which results in nearly identical performance to the base model [3][5].",
+        "answer": "The Transformer encodes the position of tokens using sinusoidal positional encoding, which is a method that allows the model to incorporate information about the position of each token in the sequence. Additionally, experiments showed that replacing the sinusoidal positional encoding with learned positional embeddings yielded nearly identical results to the base model [6].",
         "refused": false,
         "language_ok": true,
-        "correct": false,
+        "correct": true,
         "cited": true
       },
       {
@@ -2189,7 +2189,7 @@
       },
       {
         "id": "att-ar-01",
-        "answer": "عدد الطبقات في مُرمِّز نموذج المحوِّل (Transformer) هو 6 طبقات متطابقة [1].",
+        "answer": "يتكون المُرمِّز في نموذج المحوِّل (Transformer) من 6 طبقات متطابقة [1].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2197,23 +2197,23 @@
       },
       {
         "id": "att-ar-02",
-        "answer": "حقق النموذج الكبير نتيجة BLEU قدرها 41.0 في الترجمة من الإنجليزية إلى الفرنسية [1].",
-        "refused": false,
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
         "language_ok": true,
         "correct": false,
-        "cited": true
+        "cited": false
       },
       {
         "id": "att-ar-03",
-        "answer": "معدل الإسقاط (dropout) المستخدم في النموذج الأساسي هو 0.3 [4].",
+        "answer": "معدل الإسقاط (dropout) المستخدم في النموذج الأساسي هو Pdrop = 0.1 [1].",
         "refused": false,
         "language_ok": true,
-        "correct": false,
+        "correct": true,
         "cited": true
       },
       {
         "id": "att-ar-04",
-        "answer": "عدد رؤوس الانتباه المتوازية في النموذج هو 8 رؤوس [2].",
+        "answer": "عدد رؤوس الانتباه المتوازية في النموذج هو 8 [2].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2229,7 +2229,7 @@
       },
       {
         "id": "att-ar-06",
-        "answer": "استغرق تدريب النموذج الكبير 3.5 أيام على 8 وحدات معالجة رسومية من نوع NVIDIA P100 [2].",
+        "answer": "استغرق تدريب النموذج الكبير 3.5 أيام على 8 وحدات معالجة رسومية من نوع NVIDIA P100 [1][3].",
         "refused": false,
         "language_ok": true,
         "correct": true,
@@ -2245,11 +2245,11 @@
       },
       {
         "id": "att-ar-08",
-        "answer": "لا تحتوي المستندات على هذه المعلومة.",
-        "refused": true,
+        "answer": "تم اختبار نموذج المحوِّل على مهمة تحليل الجمل الإنجليزية (English constituency parsing) بنجاح، سواء مع بيانات تدريب كبيرة أو محدودة [2].",
+        "refused": false,
         "language_ok": true,
-        "correct": false,
-        "cited": false
+        "correct": true,
+        "cited": true
       },
       {
         "id": "none-en-01",
@@ -2297,7 +2297,7 @@
   },
   "answers": {
     "mode": "retrieve-then-answer",
-    "answer_accuracy": 0.786,
+    "answer_accuracy": 0.81,
     "answerable_n": 42,
     "false_refusals": 5,
     "citation_rate": 0.881,

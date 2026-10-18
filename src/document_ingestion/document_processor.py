@@ -21,8 +21,9 @@ logger = logging.getLogger(__name__)
 
 CACHE_DIR = Path("data/cache")
 OCR_DPI = 200
-# Arabic punctuation added so chunks prefer to break at sentence ends
-SEPARATORS = ["\n\n", "\n", ".", "؟", "?", "،", ",", " ", ""]
+# Sentence ends come before line breaks, so a chunk does not stop in the middle of a
+# sentence (PDF lines break mid-sentence). ". " rather than "." keeps numbers like 0.1 whole.
+SEPARATORS = ["\n\n", ". ", ".\n", "؟", "?", "\n", "،", ",", " ", ""]
 
 
 def file_hash(path: Path) -> str:
@@ -55,6 +56,7 @@ class DocumentProcessor:
         self.cache_dir = Path(cache_dir)
         self.splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size, chunk_overlap=chunk_overlap, separators=SEPARATORS,
+            keep_separator="end",
         )
         self.ocr_reader = None  # EasyOCR loads ~300 MB of models, so only when needed
 

@@ -58,6 +58,7 @@ System answer: {answer}
 
 Reply CORRECT only if the system answer states every key fact of the reference
 (numbers, durations, percentages, conditions) and contradicts none of them.
+If the reference gives alternatives, one of them is enough.
 Extra correct detail is fine. Otherwise reply WRONG. Reply with one word."""
 
 

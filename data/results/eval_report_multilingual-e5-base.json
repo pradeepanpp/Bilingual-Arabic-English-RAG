@@ -3,18 +3,18 @@
   "model": "intfloat/multilingual-e5-base",
   "retrieval": {
     "pdfplumber": {
-      "chunks": 392,
-      "ms_per_query": 49.9,
+      "chunks": 413,
+      "ms_per_query": 46.8,
       "page": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.333,
+          "hit_at_1": 0.286,
           "recall_at_k": 0.381,
           "recall_at_k_ci95": [
             0.25,
             0.532
           ],
-          "mrr": 0.351
+          "mrr": 0.312
         },
         "en->ar": {
           "n": 14,
@@ -38,45 +38,45 @@
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.9,
+          "hit_at_1": 0.8,
           "recall_at_k": 0.9,
           "recall_at_k_ci95": [
             0.596,
             0.982
           ],
-          "mrr": 0.9
+          "mrr": 0.82
         },
         "ar->en": {
           "n": 8,
-          "hit_at_1": 0.625,
+          "hit_at_1": 0.5,
           "recall_at_k": 0.75,
           "recall_at_k_ci95": [
             0.409,
             0.929
           ],
-          "mrr": 0.688
+          "mrr": 0.583
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.227,
+          "hit_at_1": 0.182,
           "recall_at_k": 0.273,
           "recall_at_k_ci95": [
             0.132,
             0.482
           ],
-          "mrr": 0.25
+          "mrr": 0.212
         }
       },
       "fact": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.214,
+          "hit_at_1": 0.19,
           "recall_at_k": 0.286,
           "recall_at_k_ci95": [
             0.172,
             0.436
           ],
-          "mrr": 0.24
+          "mrr": 0.222
         },
         "en->ar": {
           "n": 14,
@@ -100,325 +100,69 @@
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.6,
-          "recall_at_k": 0.8,
-          "recall_at_k_ci95": [
-            0.49,
-            0.943
-          ],
-          "mrr": 0.658
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.5,
-          "recall_at_k_ci95": [
-            0.215,
-            0.785
-          ],
-          "mrr": 0.438
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.136,
-          "recall_at_k": 0.182,
-          "recall_at_k_ci95": [
-            0.073,
-            0.385
-          ],
-          "mrr": 0.159
-        }
-      }
-    },
-    "pymupdf": {
-      "chunks": 377,
-      "ms_per_query": 40.1,
-      "page": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.429,
-          "recall_at_k": 0.762,
-          "recall_at_k_ci95": [
-            0.615,
-            0.865
-          ],
-          "mrr": 0.552
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.214,
-          "recall_at_k": 0.714,
-          "recall_at_k_ci95": [
-            0.454,
-            0.883
-          ],
-          "mrr": 0.411
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.3,
+          "hit_at_1": 0.5,
           "recall_at_k": 0.7,
           "recall_at_k_ci95": [
             0.397,
             0.892
           ],
-          "mrr": 0.453
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.833
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.5,
-          "recall_at_k": 0.75,
-          "recall_at_k_ci95": [
-            0.409,
-            0.929
-          ],
-          "mrr": 0.573
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.318,
-          "recall_at_k": 0.727,
-          "recall_at_k_ci95": [
-            0.518,
-            0.868
-          ],
-          "mrr": 0.47
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.19,
-          "recall_at_k": 0.405,
-          "recall_at_k_ci95": [
-            0.27,
-            0.555
-          ],
-          "mrr": 0.253
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.071,
-          "recall_at_k_ci95": [
-            0.013,
-            0.315
-          ],
-          "mrr": 0.036
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.0,
-          "recall_at_k": 0.1,
-          "recall_at_k_ci95": [
-            0.018,
-            0.404
-          ],
-          "mrr": 0.02
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.5,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.608
+          "mrr": 0.567
         },
         "ar->en": {
           "n": 8,
           "hit_at_1": 0.375,
-          "recall_at_k": 0.75,
+          "recall_at_k": 0.625,
           "recall_at_k_ci95": [
-            0.409,
-            0.929
+            0.306,
+            0.863
           ],
-          "mrr": 0.479
+          "mrr": 0.458
         },
         "cross-lingual": {
           "n": 22,
           "hit_at_1": 0.136,
-          "recall_at_k": 0.318,
+          "recall_at_k": 0.227,
           "recall_at_k_ci95": [
-            0.164,
-            0.527
+            0.101,
+            0.434
           ],
-          "mrr": 0.197
+          "mrr": 0.167
         }
       }
     },
-    "pymupdf+ocr": {
-      "chunks": 450,
-      "ms_per_query": 41.2,
+    "pymupdf": {
+      "chunks": 437,
+      "ms_per_query": 40.6,
       "page": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.548,
+          "hit_at_1": 0.571,
           "recall_at_k": 0.786,
           "recall_at_k_ci95": [
             0.641,
             0.883
           ],
-          "mrr": 0.639
+          "mrr": 0.642
         },
         "en->ar": {
           "n": 14,
-          "hit_at_1": 0.143,
-          "recall_at_k": 0.571,
+          "hit_at_1": 0.429,
+          "recall_at_k": 0.786,
           "recall_at_k_ci95": [
-            0.326,
-            0.786
+            0.524,
+            0.924
           ],
-          "mrr": 0.315
+          "mrr": 0.556
         },
         "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.9,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.95
-        },
-        "en->en": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 0.9,
-          "recall_at_k_ci95": [
-            0.596,
-            0.982
-          ],
-          "mrr": 0.833
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.5,
-          "recall_at_k": 0.75,
-          "recall_at_k_ci95": [
-            0.409,
-            0.929
-          ],
-          "mrr": 0.573
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.273,
-          "recall_at_k": 0.636,
-          "recall_at_k_ci95": [
-            0.43,
-            0.803
-          ],
-          "mrr": 0.409
-        }
-      },
-      "fact": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.405,
-          "recall_at_k": 0.69,
-          "recall_at_k_ci95": [
-            0.54,
-            0.809
-          ],
-          "mrr": 0.5
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.071,
-          "recall_at_k": 0.286,
-          "recall_at_k_ci95": [
-            0.117,
-            0.546
-          ],
-          "mrr": 0.149
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.8,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.9
-        },
-        "en->en": {
           "n": 10,
           "hit_at_1": 0.5,
-          "recall_at_k": 0.9,
+          "recall_at_k": 0.7,
           "recall_at_k_ci95": [
-            0.596,
-            0.982
+            0.397,
+            0.892
           ],
-          "mrr": 0.608
-        },
-        "ar->en": {
-          "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.75,
-          "recall_at_k_ci95": [
-            0.409,
-            0.929
-          ],
-          "mrr": 0.479
-        },
-        "cross-lingual": {
-          "n": 22,
-          "hit_at_1": 0.182,
-          "recall_at_k": 0.455,
-          "recall_at_k_ci95": [
-            0.269,
-            0.653
-          ],
-          "mrr": 0.269
-        }
-      }
-    },
-    "+translation": {
-      "chunks": 450,
-      "ms_per_query": 1027.6,
-      "page": {
-        "all": {
-          "n": 42,
-          "hit_at_1": 0.595,
-          "recall_at_k": 0.929,
-          "recall_at_k_ci95": [
-            0.81,
-            0.975
-          ],
-          "mrr": 0.717
-        },
-        "en->ar": {
-          "n": 14,
-          "hit_at_1": 0.357,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.785,
-            1.0
-          ],
-          "mrr": 0.568
-        },
-        "ar->ar": {
-          "n": 10,
-          "hit_at_1": 0.7,
-          "recall_at_k": 1.0,
-          "recall_at_k_ci95": [
-            0.722,
-            1.0
-          ],
-          "mrr": 0.833
+          "mrr": 0.575
         },
         "en->en": {
           "n": 10,
@@ -428,7 +172,7 @@
             0.596,
             0.982
           ],
-          "mrr": 0.833
+          "mrr": 0.825
         },
         "ar->en": {
           "n": 8,
@@ -438,59 +182,59 @@
             0.409,
             0.929
           ],
-          "mrr": 0.688
+          "mrr": 0.65
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.455,
-          "recall_at_k": 0.909,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.773,
           "recall_at_k_ci95": [
-            0.722,
-            0.975
+            0.566,
+            0.899
           ],
-          "mrr": 0.611
+          "mrr": 0.59
         }
       },
       "fact": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.381,
-          "recall_at_k": 0.857,
+          "hit_at_1": 0.238,
+          "recall_at_k": 0.381,
           "recall_at_k_ci95": [
-            0.722,
-            0.933
+            0.25,
+            0.532
           ],
-          "mrr": 0.538
+          "mrr": 0.298
         },
         "en->ar": {
           "n": 14,
           "hit_at_1": 0.143,
-          "recall_at_k": 0.786,
+          "recall_at_k": 0.214,
           "recall_at_k_ci95": [
-            0.524,
-            0.924
+            0.076,
+            0.476
           ],
-          "mrr": 0.333
+          "mrr": 0.179
         },
         "ar->ar": {
           "n": 10,
-          "hit_at_1": 0.5,
-          "recall_at_k": 1.0,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.0,
           "recall_at_k_ci95": [
-            0.722,
-            1.0
+            0.0,
+            0.278
           ],
-          "mrr": 0.7
+          "mrr": 0.0
         },
         "en->en": {
           "n": 10,
-          "hit_at_1": 0.5,
-          "recall_at_k": 0.9,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.7,
           "recall_at_k_ci95": [
-            0.596,
-            0.982
+            0.397,
+            0.892
           ],
-          "mrr": 0.633
+          "mrr": 0.533
         },
         "ar->en": {
           "n": 8,
@@ -500,43 +244,43 @@
             0.409,
             0.929
           ],
-          "mrr": 0.573
+          "mrr": 0.588
         },
         "cross-lingual": {
           "n": 22,
           "hit_at_1": 0.273,
-          "recall_at_k": 0.773,
+          "recall_at_k": 0.409,
           "recall_at_k_ci95": [
-            0.566,
-            0.899
+            0.233,
+            0.613
           ],
-          "mrr": 0.42
+          "mrr": 0.327
         }
       }
     },
-    "+1000-char chunks": {
-      "chunks": 232,
-      "ms_per_query": 80.5,
+    "pymupdf+ocr": {
+      "chunks": 391,
+      "ms_per_query": 39.7,
       "page": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.595,
-          "recall_at_k": 0.952,
+          "hit_at_1": 0.548,
+          "recall_at_k": 0.786,
           "recall_at_k_ci95": [
-            0.842,
-            0.987
+            0.641,
+            0.883
           ],
-          "mrr": 0.729
+          "mrr": 0.624
         },
         "en->ar": {
           "n": 14,
-          "hit_at_1": 0.5,
-          "recall_at_k": 1.0,
+          "hit_at_1": 0.214,
+          "recall_at_k": 0.571,
           "recall_at_k_ci95": [
-            0.785,
-            1.0
+            0.326,
+            0.786
           ],
-          "mrr": 0.656
+          "mrr": 0.327
         },
         "ar->ar": {
           "n": 10,
@@ -556,49 +300,49 @@
             0.596,
             0.982
           ],
-          "mrr": 0.85
+          "mrr": 0.825
         },
         "ar->en": {
           "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.875,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.75,
           "recall_at_k_ci95": [
-            0.529,
-            0.978
+            0.409,
+            0.929
           ],
-          "mrr": 0.594
+          "mrr": 0.65
         },
         "cross-lingual": {
           "n": 22,
-          "hit_at_1": 0.455,
-          "recall_at_k": 0.955,
+          "hit_at_1": 0.364,
+          "recall_at_k": 0.636,
           "recall_at_k_ci95": [
-            0.782,
-            0.992
+            0.43,
+            0.803
           ],
-          "mrr": 0.633
+          "mrr": 0.445
         }
       },
       "fact": {
         "all": {
           "n": 42,
-          "hit_at_1": 0.476,
-          "recall_at_k": 0.881,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.69,
           "recall_at_k_ci95": [
-            0.75,
-            0.948
+            0.54,
+            0.809
           ],
-          "mrr": 0.619
+          "mrr": 0.477
         },
         "en->ar": {
           "n": 14,
-          "hit_at_1": 0.214,
-          "recall_at_k": 0.857,
+          "hit_at_1": 0.071,
+          "recall_at_k": 0.429,
           "recall_at_k_ci95": [
-            0.601,
-            0.96
+            0.214,
+            0.674
           ],
-          "mrr": 0.412
+          "mrr": 0.167
         },
         "ar->ar": {
           "n": 10,
@@ -608,7 +352,73 @@
             0.722,
             1.0
           ],
-          "mrr": 0.742
+          "mrr": 0.767
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.7,
+          "recall_at_k_ci95": [
+            0.397,
+            0.892
+          ],
+          "mrr": 0.533
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.75,
+          "recall_at_k_ci95": [
+            0.409,
+            0.929
+          ],
+          "mrr": 0.588
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.227,
+          "recall_at_k": 0.545,
+          "recall_at_k_ci95": [
+            0.347,
+            0.731
+          ],
+          "mrr": 0.32
+        }
+      }
+    },
+    "+translation": {
+      "chunks": 391,
+      "ms_per_query": 1028.5,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.548,
+          "recall_at_k": 0.905,
+          "recall_at_k_ci95": [
+            0.779,
+            0.962
+          ],
+          "mrr": 0.671
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.857,
+          "recall_at_k_ci95": [
+            0.601,
+            0.96
+          ],
+          "mrr": 0.53
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.67
         },
         "en->en": {
           "n": 10,
@@ -618,27 +428,217 @@
             0.596,
             0.982
           ],
-          "mrr": 0.85
+          "mrr": 0.833
         },
         "ar->en": {
           "n": 8,
-          "hit_at_1": 0.375,
-          "recall_at_k": 0.75,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.875,
           "recall_at_k_ci95": [
-            0.409,
-            0.929
+            0.529,
+            0.978
           ],
-          "mrr": 0.542
+          "mrr": 0.719
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.455,
+          "recall_at_k": 0.864,
+          "recall_at_k_ci95": [
+            0.667,
+            0.953
+          ],
+          "mrr": 0.598
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.333,
+          "recall_at_k": 0.786,
+          "recall_at_k_ci95": [
+            0.641,
+            0.883
+          ],
+          "mrr": 0.49
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.143,
+          "recall_at_k": 0.714,
+          "recall_at_k_ci95": [
+            0.454,
+            0.883
+          ],
+          "mrr": 0.339
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.548
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.4,
+          "recall_at_k": 0.7,
+          "recall_at_k_ci95": [
+            0.397,
+            0.892
+          ],
+          "mrr": 0.517
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.646
         },
         "cross-lingual": {
           "n": 22,
           "hit_at_1": 0.273,
+          "recall_at_k": 0.773,
+          "recall_at_k_ci95": [
+            0.566,
+            0.899
+          ],
+          "mrr": 0.451
+        }
+      }
+    },
+    "+1000-char chunks": {
+      "chunks": 204,
+      "ms_per_query": 80.0,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.881,
+          "recall_at_k_ci95": [
+            0.75,
+            0.948
+          ],
+          "mrr": 0.669
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.429,
+          "recall_at_k": 0.786,
+          "recall_at_k_ci95": [
+            0.524,
+            0.924
+          ],
+          "mrr": 0.556
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.733
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.7
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.75
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.5,
           "recall_at_k": 0.818,
           "recall_at_k_ci95": [
             0.615,
             0.927
           ],
-          "mrr": 0.459
+          "mrr": 0.627
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.262,
+          "recall_at_k": 0.833,
+          "recall_at_k_ci95": [
+            0.694,
+            0.917
+          ],
+          "mrr": 0.493
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.143,
+          "recall_at_k": 0.786,
+          "recall_at_k_ci95": [
+            0.524,
+            0.924
+          ],
+          "mrr": 0.358
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.4,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.683
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.3,
+          "recall_at_k": 0.7,
+          "recall_at_k_ci95": [
+            0.397,
+            0.892
+          ],
+          "mrr": 0.453
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.25,
+          "recall_at_k": 0.875,
+          "recall_at_k_ci95": [
+            0.529,
+            0.978
+          ],
+          "mrr": 0.542
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.182,
+          "recall_at_k": 0.818,
+          "recall_at_k_ci95": [
+            0.615,
+            0.927
+          ],
+          "mrr": 0.425
         }
       }
     }
@@ -798,20 +798,20 @@
       {
         "id": "att-en-02",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 5,
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 2
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -835,7 +835,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 6
       },
       {
         "id": "att-en-09",
@@ -852,14 +852,14 @@
       {
         "id": "att-ar-01",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": null
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
@@ -888,8 +888,8 @@
       {
         "id": "att-ar-07",
         "direction": "ar->en",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "att-ar-08",
@@ -908,7 +908,7 @@
       {
         "id": "law-en-02",
         "direction": "en->ar",
-        "page_rank": 1,
+        "page_rank": 5,
         "fact_rank": null
       },
       {
@@ -926,8 +926,8 @@
       {
         "id": "law-en-05",
         "direction": "en->ar",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-06",
@@ -944,32 +944,32 @@
       {
         "id": "law-en-08",
         "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
         "page_rank": 2,
         "fact_rank": 2
       },
       {
-        "id": "law-en-09",
+        "id": "law-en-10",
         "direction": "en->ar",
         "page_rank": 4,
         "fact_rank": null
       },
       {
-        "id": "law-en-10",
-        "direction": "en->ar",
-        "page_rank": 6,
-        "fact_rank": null
-      },
-      {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "law-en-12",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": null
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-13",
@@ -986,19 +986,19 @@
       {
         "id": "law-ar-01",
         "direction": "ar->ar",
-        "page_rank": 5,
-        "fact_rank": 5
+        "page_rank": 1,
+        "fact_rank": null
       },
       {
         "id": "law-ar-02",
         "direction": "ar->ar",
-        "page_rank": 3,
+        "page_rank": 2,
         "fact_rank": null
       },
       {
         "id": "law-ar-03",
         "direction": "ar->ar",
-        "page_rank": 2,
+        "page_rank": 4,
         "fact_rank": null
       },
       {
@@ -1016,7 +1016,7 @@
       {
         "id": "law-ar-06",
         "direction": "ar->ar",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
@@ -1053,19 +1053,19 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 2
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1077,7 +1077,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "att-en-07",
@@ -1089,7 +1089,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 3
       },
       {
         "id": "att-en-09",
@@ -1100,26 +1100,26 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 4
+        "page_rank": 4,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
         "direction": "ar->en",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 5,
+        "fact_rank": 5
       },
       {
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
-        "page_rank": 3,
-        "fact_rank": 4
+        "page_rank": 1,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1156,43 +1156,43 @@
       {
         "id": "law-en-01",
         "direction": "en->ar",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 2,
+        "fact_rank": 6
       },
       {
         "id": "law-en-02",
         "direction": "en->ar",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": null
       },
       {
         "id": "law-en-03",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-04",
         "direction": "en->ar",
-        "page_rank": 2,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-05",
         "direction": "en->ar",
-        "page_rank": 1,
-        "fact_rank": 1
-      },
-      {
-        "id": "law-en-06",
-        "direction": "en->ar",
         "page_rank": 2,
         "fact_rank": 2
       },
       {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
         "id": "law-en-07",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": 4,
         "fact_rank": null
       },
       {
@@ -1216,8 +1216,8 @@
       {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 6,
+        "fact_rank": 6
       },
       {
         "id": "law-en-12",
@@ -1228,8 +1228,8 @@
       {
         "id": "law-en-13",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 6,
+        "fact_rank": 6
       },
       {
         "id": "law-en-14",
@@ -1246,8 +1246,8 @@
       {
         "id": "law-ar-02",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-03",
@@ -1288,8 +1288,8 @@
       {
         "id": "law-ar-09",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 6,
+        "fact_rank": 6
       },
       {
         "id": "law-ar-10",
@@ -1307,19 +1307,19 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 2
       },
       {
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1331,7 +1331,7 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "att-en-07",
@@ -1343,7 +1343,7 @@
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 3
       },
       {
         "id": "att-en-09",
@@ -1354,26 +1354,26 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 4
+        "page_rank": 4,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
         "direction": "ar->en",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 5,
+        "fact_rank": 5
       },
       {
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
-        "page_rank": 3,
-        "fact_rank": 4
+        "page_rank": 1,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1410,8 +1410,8 @@
       {
         "id": "law-en-01",
         "direction": "en->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-02",
@@ -1422,20 +1422,20 @@
       {
         "id": "law-en-03",
         "direction": "en->ar",
-        "page_rank": 5,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-04",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-05",
         "direction": "en->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-en-06",
@@ -1447,31 +1447,31 @@
         "id": "law-en-07",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 6
+        "fact_rank": null
       },
       {
         "id": "law-en-08",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 6,
+        "fact_rank": 6
       },
       {
         "id": "law-en-09",
         "direction": "en->ar",
         "page_rank": 2,
-        "fact_rank": 4
+        "fact_rank": 2
       },
       {
         "id": "law-en-10",
         "direction": "en->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "law-en-11",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-12",
@@ -1482,32 +1482,32 @@
       {
         "id": "law-en-13",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-14",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-ar-01",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 5,
+        "fact_rank": 5
       },
       {
         "id": "law-ar-02",
         "direction": "ar->ar",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 4
       },
       {
         "id": "law-ar-03",
         "direction": "ar->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-04",
@@ -1518,8 +1518,8 @@
       {
         "id": "law-ar-05",
         "direction": "ar->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-ar-06",
@@ -1536,14 +1536,14 @@
       {
         "id": "law-ar-08",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 3
+        "page_rank": 3,
+        "fact_rank": 5
       },
       {
         "id": "law-ar-09",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 3,
+        "fact_rank": null
       },
       {
         "id": "law-ar-10",
@@ -1561,7 +1561,7 @@
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
@@ -1573,7 +1573,7 @@
         "id": "att-en-04",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 1
       },
       {
         "id": "att-en-05",
@@ -1585,19 +1585,19 @@
         "id": "att-en-06",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 2
       },
       {
         "id": "att-en-07",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "att-en-08",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 2
+        "fact_rank": 1
       },
       {
         "id": "att-en-09",
@@ -1608,8 +1608,8 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 3,
-        "fact_rank": 4
+        "page_rank": 1,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
@@ -1621,13 +1621,13 @@
         "id": "att-ar-02",
         "direction": "ar->en",
         "page_rank": 1,
-        "fact_rank": 3
+        "fact_rank": 1
       },
       {
         "id": "att-ar-03",
         "direction": "ar->en",
-        "page_rank": 2,
-        "fact_rank": 4
+        "page_rank": 1,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-04",
@@ -1644,8 +1644,8 @@
       {
         "id": "att-ar-06",
         "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-ar-07",
@@ -1656,8 +1656,8 @@
       {
         "id": "att-ar-08",
         "direction": "ar->en",
-        "page_rank": null,
-        "fact_rank": null
+        "page_rank": 4,
+        "fact_rank": 6
       }
     ],
     "+1000-char chunks": [
@@ -1671,37 +1671,37 @@
         "id": "law-en-02",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 5
       },
       {
         "id": "law-en-03",
         "direction": "en->ar",
-        "page_rank": 1,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-04",
         "direction": "en->ar",
-        "page_rank": 3,
+        "page_rank": null,
         "fact_rank": null
       },
       {
         "id": "law-en-05",
         "direction": "en->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-en-06",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 3
       },
       {
         "id": "law-en-07",
         "direction": "en->ar",
         "page_rank": 1,
-        "fact_rank": 6
+        "fact_rank": 5
       },
       {
         "id": "law-en-08",
@@ -1712,14 +1712,14 @@
       {
         "id": "law-en-09",
         "direction": "en->ar",
-        "page_rank": 2,
-        "fact_rank": 2
+        "page_rank": 3,
+        "fact_rank": 3
       },
       {
         "id": "law-en-10",
         "direction": "en->ar",
-        "page_rank": 4,
-        "fact_rank": 4
+        "page_rank": 1,
+        "fact_rank": 1
       },
       {
         "id": "law-en-11",
@@ -1736,14 +1736,14 @@
       {
         "id": "law-en-13",
         "direction": "en->ar",
-        "page_rank": 5,
-        "fact_rank": 5
+        "page_rank": 4,
+        "fact_rank": 4
       },
       {
         "id": "law-en-14",
         "direction": "en->ar",
-        "page_rank": 5,
-        "fact_rank": 5
+        "page_rank": null,
+        "fact_rank": null
       },
       {
         "id": "law-ar-01",
@@ -1755,13 +1755,13 @@
         "id": "law-ar-02",
         "direction": "ar->ar",
         "page_rank": 1,
-        "fact_rank": 4
+        "fact_rank": 2
       },
       {
         "id": "law-ar-03",
         "direction": "ar->ar",
-        "page_rank": 3,
-        "fact_rank": 3
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-04",
@@ -1784,8 +1784,8 @@
       {
         "id": "law-ar-07",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-08",
@@ -1796,8 +1796,8 @@
       {
         "id": "law-ar-09",
         "direction": "ar->ar",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "law-ar-10",
@@ -1808,20 +1808,20 @@
       {
         "id": "att-en-01",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 2
       },
       {
         "id": "att-en-02",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": null
       },
       {
         "id": "att-en-03",
         "direction": "en->en",
         "page_rank": 1,
-        "fact_rank": 1
+        "fact_rank": 3
       },
       {
         "id": "att-en-04",
@@ -1844,8 +1844,8 @@
       {
         "id": "att-en-07",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": 5
       },
       {
         "id": "att-en-08",
@@ -1862,31 +1862,31 @@
       {
         "id": "att-en-10",
         "direction": "en->en",
-        "page_rank": 1,
-        "fact_rank": 1
+        "page_rank": 2,
+        "fact_rank": null
       },
       {
         "id": "att-ar-01",
-        "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
-      },
-      {
-        "id": "att-ar-02",
-        "direction": "ar->en",
-        "page_rank": 1,
-        "fact_rank": 1
-      },
-      {
-        "id": "att-ar-03",
         "direction": "ar->en",
         "page_rank": 2,
         "fact_rank": 2
       },
       {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 3
+      },
+      {
         "id": "att-ar-04",
         "direction": "ar->en",
-        "page_rank": 2,
+        "page_rank": 1,
         "fact_rank": 2
       },
       {
@@ -1899,7 +1899,7 @@
         "id": "att-ar-06",
         "direction": "ar->en",
         "page_rank": 2,
-        "fact_rank": 3
+        "fact_rank": 2
       },
       {
         "id": "att-ar-07",
@@ -1910,8 +1910,8 @@
       {
         "id": "att-ar-08",
         "direction": "ar->en",
-        "page_rank": 4,
-        "fact_rank": null
+        "page_rank": 1,
+        "fact_rank": 1
       }
     ]
   }

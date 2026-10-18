@@ -2,6 +2,7 @@ import json
 import logging
 
 import pytest
+from langchain_core.documents import Document
 
 from src.document_ingestion.document_processor import DocumentProcessor, read_url_list
 from tests.conftest import make_pdf
@@ -98,3 +99,11 @@ def test_chunks_keep_page_metadata(tmp_path, processor):
     chunks = processor.split(processor.load_pdf(pdf))
     assert len(chunks) > 1
     assert all(c.metadata["page"] == 0 and len(c.page_content) <= 500 for c in chunks)
+
+
+def test_chunks_end_at_sentences(processor):
+    line = "The base model uses a dropout rate of 0.1 and was trained\nfor 12 hours on 8 GPUs. "
+    chunks = processor.split([Document(page_content=line * 12, metadata={"page": 0})])
+    assert len(chunks) > 1
+    assert all(c.page_content.rstrip().endswith("GPUs.") for c in chunks)
+    assert all("0.1" in c.page_content for c in chunks)
