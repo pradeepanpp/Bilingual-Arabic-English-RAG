@@ -1,200 +1,158 @@
-from __future__ import annotations
+"""
+Load documents (PDFs, URLs, text files) and split them into chunks.
 
-import re
+PDF pages are read with PyMuPDF. A page goes to OCR (EasyOCR, Arabic +
+English) only when its text layer is missing or unusable; see
+text_quality.ocr_reason(). OCR is slow on a CPU (tens of seconds per page),
+so OCR results are cached in data/cache/ per file and page.
+"""
+
+import hashlib
+import json
+import logging
 from pathlib import Path
-from typing import List, Union, Optional
 
 from langchain_core.documents import Document
-from langchain_community.document_loaders import WebBaseLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from src.document_ingestion.text_quality import clean_text, ocr_reason
+
+logger = logging.getLogger(__name__)
+
+CACHE_DIR = Path("data/cache")
+OCR_DPI = 200
+# Arabic punctuation added so chunks prefer to break at sentence ends
+SEPARATORS = ["\n\n", "\n", ".", "؟", "?", "،", ",", " ", ""]
+
+
+def file_hash(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+
+
+class OCRCache:
+    """OCR text per page, stored as data/cache/<file hash>.json."""
+
+    def __init__(self, pdf_path: Path, cache_dir: Path = CACHE_DIR):
+        self.path = Path(cache_dir) / f"{file_hash(pdf_path)}.json"
+        self.data = json.loads(self.path.read_text(encoding="utf-8")) if self.path.exists() else {}
+        self.data.setdefault("file", pdf_path.name)
+        self.data.setdefault("dpi", OCR_DPI)
+        self.data.setdefault("pages", {})
+
+    def get(self, page_index: int):
+        return self.data["pages"].get(str(page_index))
+
+    def put(self, page_index: int, text: str):
+        self.data["pages"][str(page_index)] = text
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps(self.data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 class DocumentProcessor:
-    """Handles document loading and processing (URLs, TXT, PDFs with OCR fallback)."""
-
-    def __init__(
-        self,
-        chunk_size: int = 500,
-        chunk_overlap: int = 50,
-        enable_ocr_fallback: bool = True,
-        ocr_min_chars: int = 80,
-        ocr_dpi: int = 200,
-    ):
-    
-        self.chunk_size = chunk_size
-        self.chunk_overlap = chunk_overlap
-        self.enable_ocr_fallback = enable_ocr_fallback
-        self.ocr_min_chars = ocr_min_chars
-        self.ocr_dpi = ocr_dpi
-
+    def __init__(self, chunk_size: int = 500, chunk_overlap: int = 50, use_ocr: bool = True,
+                 cache_dir: Path = CACHE_DIR):
+        self.use_ocr = use_ocr
+        self.cache_dir = Path(cache_dir)
         self.splitter = RecursiveCharacterTextSplitter(
-            chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
+            chunk_size=chunk_size, chunk_overlap=chunk_overlap, separators=SEPARATORS,
         )
+        self.ocr_reader = None  # EasyOCR loads ~300 MB of models, so only when needed
 
-        
-        self._easyocr_reader = None
+    # PDFs
 
-    def _normalize_metadata(self, docs: List[Document], source: str) -> List[Document]:
-        
-        for d in docs:
-            meta = getattr(d, "metadata", None) or {}
-            meta.setdefault("source", source)
-            d.metadata = meta
+    def load_pdf(self, path) -> list[Document]:
+        """One Document per page, with source, page (0-based) and extraction method."""
+        import pymupdf
+
+        path = Path(path)
+        cache = OCRCache(path, self.cache_dir) if self.use_ocr else None
+        docs = []
+        with pymupdf.open(path) as pdf:
+            for i, page in enumerate(pdf):
+                text, method = clean_text(page.get_text()), "text"
+                reason = ocr_reason(text)
+                if reason and cache is not None:
+                    ocr_text = self.ocr_page(page, i, cache, reason)
+                    if ocr_text:
+                        text, method = clean_text(ocr_text), "ocr"
+                if text:
+                    docs.append(Document(page_content=text,
+                                         metadata={"source": path.name, "page": i, "method": method}))
         return docs
 
-    def load_url_list_file(self, file_path: Union[str, Path]) -> List[str]:
-        
-        path = Path(file_path)
-        lines = path.read_text(encoding="utf-8").splitlines()
-        urls: List[str] = []
-        for line in lines:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            urls.append(line)
-        return urls
-
-    def load_from_url(self, url: str) -> List[Document]:
-        loaded = WebBaseLoader(url).load()
-        return self._normalize_metadata(loaded, source=url)
-
-    def load_from_txt(self, file_path: Union[str, Path]) -> List[Document]:
-        loaded = TextLoader(str(file_path), encoding="utf-8").load()
-        return self._normalize_metadata(loaded, source=str(file_path))
-
-    
-    def _needs_ocr(self, extracted_text: str) -> bool:
-        text = (extracted_text or "").strip()
-
-        
-        if len(text) < self.ocr_min_chars:
-            return True
-
-        
-        arabic_chars = re.findall(r"[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]", text)
-        arabic_ratio = len(arabic_chars) / max(len(text), 1)
-
-        
-        if len(text) > 200 and arabic_ratio < 0.02:
-            return True
-
-        
-        if text.count("�") > 5:
-            return True
-
-        return False
-
-    def _get_easyocr_reader(self):
-    
-        if self._easyocr_reader is None:
-            import easyocr  
-            self._easyocr_reader = easyocr.Reader(["ar", "en"], gpu=False)
-        return self._easyocr_reader
-
-    def _ocr_pdf_page(self, pdf_path: Path, page_index: int) -> str:
-    
-        import fitz  
-        from PIL import Image
-        import io
-
-        doc = fitz.open(str(pdf_path))
+    def ocr_page(self, page, page_index: int, cache: OCRCache, reason: str) -> str:
+        cached = cache.get(page_index)
+        if cached is not None:
+            return cached
+        logger.info(f"OCR page {page_index + 1} of {cache.data['file']} ({reason})")
         try:
-            page = doc.load_page(page_index)
-            zoom = self.ocr_dpi / 72.0
-            mat = fitz.Matrix(zoom, zoom)
-            pix = page.get_pixmap(matrix=mat, alpha=False)
+            import pymupdf
+            pixmap = page.get_pixmap(matrix=pymupdf.Matrix(OCR_DPI / 72, OCR_DPI / 72), alpha=False)
+            # EasyOCR accepts a file path, bytes or a numpy array, not a PIL image
+            lines = self.get_ocr_reader().readtext(pixmap.tobytes("png"), detail=0, paragraph=True)
+        except Exception as e:
+            logger.warning(f"OCR failed on page {page_index + 1} of {cache.data['file']}: {e}")
+            return ""
+        text = "\n".join(line.strip() for line in lines if line.strip())
+        cache.put(page_index, text)
+        return text
 
-            img_bytes = pix.tobytes("png")
-            image = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+    def get_ocr_reader(self):
+        if self.ocr_reader is None:
+            import easyocr
+            self.ocr_reader = easyocr.Reader(["ar", "en"], verbose=False)  # uses a GPU if there is one
+        return self.ocr_reader
 
-            reader = self._get_easyocr_reader()
-            lines = reader.readtext(image, detail=0, paragraph=True)
-            text = "\n".join([l.strip() for l in lines if l and str(l).strip()])
-            return text.strip()
-        finally:
-            doc.close()
+    # Other sources
 
-    
-    def load_from_pdf(self, file_path: Union[str, Path]) -> List[Document]:
+    def load_url(self, url: str) -> list[Document]:
+        from langchain_community.document_loaders import WebBaseLoader
 
-        import pdfplumber
-
-        path = Path(file_path)
-        docs: List[Document] = []
-
-        with pdfplumber.open(str(path)) as pdf:
-            for i, page in enumerate(pdf.pages):
-                extracted = (page.extract_text() or "").strip()
-
-                ocr_used = False
-                text = extracted
-
-                if self.enable_ocr_fallback and self._needs_ocr(extracted):
-                    try:
-                        ocr_text = self._ocr_pdf_page(path, i)
-                        if ocr_text:
-                            text = ocr_text
-                            ocr_used = True
-                    except Exception:
-                        pass
-
-                if not (text or "").strip():
-                    continue
-
-                docs.append(
-                    Document(
-                        page_content=text,
-                        metadata={"source": str(path), "page": i, "ocr_used": ocr_used},
-                    )
-                )
-
+        docs = WebBaseLoader(url).load()
+        for d in docs:
+            d.page_content = clean_text(d.page_content)
+            d.metadata = {"source": url, "title": d.metadata.get("title", ""), "method": "web"}
         return docs
 
-    def load_from_pdf_dir(self, directory: Union[str, Path]) -> List[Document]:
+    def load_text(self, path) -> list[Document]:
+        path = Path(path)
+        return [Document(page_content=clean_text(path.read_text(encoding="utf-8")),
+                         metadata={"source": path.name, "method": "text"})]
 
-        directory = Path(directory)
-        docs: List[Document] = []
-        for pdf_path in sorted(directory.glob("*.pdf")):
-            docs.extend(self.load_from_pdf(pdf_path))
-        return docs
-
-    
-    def load_documents(self, sources: List[str]) -> List[Document]:
-        docs: List[Document] = []
-
+    def load_sources(self, sources: list) -> list[Document]:
+        """
+        Sources can be URLs, PDF or .txt files, folders of PDFs, or url.txt
+        files with one URL per line. A source that fails is skipped with a
+        warning, so one dead link does not stop the app.
+        """
+        docs = []
         for src in sources:
-            if src.startswith(("http://", "https://")):
-                docs.extend(self.load_from_url(src))
-                continue
-
-            path = Path(src)
-
-            if path.is_dir():
-                docs.extend(self.load_from_pdf_dir(path))
-                continue
-
-            if path.suffix.lower() == ".pdf":
-                docs.extend(self.load_from_pdf(path))
-                continue
-
-            if path.suffix.lower() == ".txt":
-                lines = self.load_url_list_file(path)
-                if any(u.startswith(("http://", "https://")) for u in lines):
-                    for u in lines:
-                        if u.startswith(("http://", "https://")):
-                            docs.extend(self.load_from_url(u))
+            src = str(src)
+            try:
+                if src.startswith(("http://", "https://")):
+                    docs += self.load_url(src)
+                elif Path(src).is_dir():
+                    for pdf in sorted(Path(src).glob("*.pdf")):
+                        docs += self.load_pdf(pdf)
+                elif Path(src).name == "url.txt":
+                    docs += self.load_sources(read_url_list(src))
+                elif src.lower().endswith(".pdf"):
+                    docs += self.load_pdf(src)
+                elif src.lower().endswith(".txt"):
+                    docs += self.load_text(src)
                 else:
-                    docs.extend(self.load_from_txt(path))
-                continue
-
-            raise ValueError(f"Unsupported source: {src} (use URL, .pdf, .txt, or folder)")
-
+                    logger.warning(f"Skipped unsupported source: {src}")
+            except Exception as e:
+                logger.warning(f"Could not load {src}: {e}")
         return docs
 
-    def split_documents(self, documents: List[Document]) -> List[Document]:
-        return self.splitter.split_documents(documents)
-
-    def process_sources(self, sources: List[str]) -> List[Document]:
-        docs = self.load_documents(sources)
+    def split(self, docs: list[Document]) -> list[Document]:
         return self.splitter.split_documents(docs)
+
+
+def read_url_list(path) -> list[str]:
+    """URLs from a text file; blank lines and # comments are ignored."""
+    if not Path(path).exists():
+        return []
+    lines = Path(path).read_text(encoding="utf-8").splitlines()
+    return [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]

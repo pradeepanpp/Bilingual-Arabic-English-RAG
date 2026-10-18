@@ -1,30 +1,22 @@
-# Python-generated files
 __pycache__/
 *.py[oc]
 build/
 dist/
-wheels/
 *.egg-info/
-
-# Virtual environments
 .venv/
 venv/
+.ruff_cache/
+.pytest_cache/
 
-# Environment / secrets
 .env
 .env.*.local
 
-# App outputs / logs
-scores.json
-*.log
+# Downloaded or user data (the Arabic law PDF and the OCR cache are committed)
+data/docs/attention.pdf
+data/uploads/
 logs/
-outputs/
-tmp/
+*.log
 
-# Streamlit cache
-.streamlit/
 .streamlit/secrets.toml
-
-# OS files
 .DS_Store
 Thumbs.db

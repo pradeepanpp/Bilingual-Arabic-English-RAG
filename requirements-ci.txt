@@ -1,0 +1,11 @@
+# Enough to run the offline tests: no torch, no OCR or embedding models
+faiss-cpu>=1.13.2
+langchain>=1.2.10
+langchain-community>=0.4.1
+langchain-text-splitters>=1.1.0
+langgraph>=1.0.8
+pydantic>=2.12.5
+pymupdf>=1.27.1
+python-dotenv>=1.2.1
+streamlit>=1.54.0
+pytest>=8.0

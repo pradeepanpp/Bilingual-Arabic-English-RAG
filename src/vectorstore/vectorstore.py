@@ -1,63 +1,44 @@
-"""Vector store module for document embedding and retrieval"""
-
-from __future__ import annotations
-from typing import List
+"""FAISS vector store with multilingual E5 embeddings."""
 
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from langchain_huggingface import HuggingFaceEmbeddings
+
+EMBEDDING_MODEL = "intfloat/multilingual-e5-small"
+TOP_K = 4
 
 
-class E5Embeddings(HuggingFaceEmbeddings):
+def e5_embeddings(model_name: str = EMBEDDING_MODEL):
     """
-    Multilingual E5 expects:
-      - docs:   'passage: ...'
-      - query:  'query: ...'
+    E5 is trained with "query: " and "passage: " prefixes; without them
+    retrieval quality drops. Vectors are normalised, so FAISS L2 distance
+    ranks the same way as cosine similarity.
     """
+    from langchain_huggingface import HuggingFaceEmbeddings
 
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        texts = [f"passage: {t}" for t in texts]
-        return super().embed_documents(texts)
+    class E5Embeddings(HuggingFaceEmbeddings):
+        def embed_documents(self, texts):
+            return super().embed_documents([f"passage: {t}" for t in texts])
 
-    def embed_query(self, text: str) -> List[float]:
-        return super().embed_query(f"query: {text}")
+        def embed_query(self, text):
+            return super().embed_query(f"query: {text}")
+
+    return E5Embeddings(model_name=model_name, encode_kwargs={"normalize_embeddings": True})
 
 
 class VectorStore:
-    """Manages vector store operations"""
+    def __init__(self, embedding=None):
+        self.embedding = embedding or e5_embeddings()
+        self.store = None
 
-    def __init__(self):
-        """Initialize vector store with Multilingual E5 embeddings (local)"""
-        self.embedding = E5Embeddings(
-            model_name="intfloat/multilingual-e5-small",  
-            encode_kwargs={"normalize_embeddings": True},
-        )
-        self.vectorstore = None
-        self.retriever = None
+    def add_documents(self, docs: list[Document]):
+        if not docs:
+            return
+        if self.store is None:
+            self.store = FAISS.from_documents(docs, self.embedding)
+        else:
+            self.store.add_documents(docs)
 
-    def create_vectorstore(self, documents: List[Document]):
-        """
-        Create vector store from documents
-
-        Args:
-            documents: List of documents to embed
-        """
-        self.vectorstore = FAISS.from_documents(documents, self.embedding)
-        self.retriever = self.vectorstore.as_retriever(search_kwargs={"k": 4})
-
-    def get_retriever(self):
-        """
-        Get the retriever instance
-        """
-        if self.retriever is None:
-            raise ValueError("Vector store not initialized. Call create_vectorstore first.")
-        return self.retriever
-
-    def retrieve(self, query: str, k: int = 4) -> List[Document]:
-        """
-        Retrieve relevant documents for a query
-        """
-        if self.vectorstore is None:
-            raise ValueError("Vector store not initialized. Call create_vectorstore first.")
-        retriever = self.vectorstore.as_retriever(search_kwargs={"k": k})
-        return retriever.invoke(query)
+    def get_retriever(self, k: int = TOP_K):
+        if self.store is None:
+            raise ValueError("The vector store is empty. Add documents first.")
+        return self.store.as_retriever(search_kwargs={"k": k})
