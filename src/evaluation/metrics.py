@@ -14,11 +14,21 @@ def direction(item: dict) -> str:
     return f"{item['language']}->{DOC_LANGUAGE[item['source']]}"
 
 
-def relevant_rank(docs: list, item: dict):
-    """1-based rank of the first retrieved chunk from a gold page, or None."""
+def squash(text: str) -> str:
+    return "".join((text or "").split()).lower()
+
+
+def relevant_rank(docs: list, item: dict, fact: bool = False):
+    """
+    1-based rank of the first relevant chunk, or None.
+    Page level: the chunk comes from a gold page. Fact level (stricter): it also
+    contains every evidence string of the question, i.e. the fact itself.
+    """
     for rank, doc in enumerate(docs, 1):
         meta = doc.metadata
-        if meta.get("source") == item["source"] and meta.get("page", -1) + 1 in item["pages"]:
+        if meta.get("source") != item["source"] or meta.get("page", -1) + 1 not in item["pages"]:
+            continue
+        if not fact or all(squash(e) in squash(doc.page_content) for e in item["evidence"]):
             return rank
     return None
 

@@ -8,14 +8,14 @@ from src.state.rag_state import RAGState
 
 
 class GraphBuilder:
-    def __init__(self, retriever, llm, use_agent: bool = False):
+    def __init__(self, retriever, llm, use_agent: bool = False, translate_query: bool = True):
         builder = StateGraph(RAGState)
         if use_agent:
             builder.add_node("agent", AgentNodes(retriever, llm).answer)
             builder.set_entry_point("agent")
             builder.add_edge("agent", END)
         else:
-            nodes = RAGNodes(retriever, llm)
+            nodes = RAGNodes(retriever, llm, translate_query=translate_query)
             builder.add_node("retriever", nodes.retrieve_docs)
             builder.add_node("responder", nodes.generate_answer)
             builder.set_entry_point("retriever")

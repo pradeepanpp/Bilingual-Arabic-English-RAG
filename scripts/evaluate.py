@@ -2,30 +2,37 @@
 Evaluate the pipeline on data/eval/questions.json (48 questions about the
 two PDFs in data/docs: 42 answerable, 6 not answerable from the documents).
 
-Retrieval (no API key needed): for each text-extraction method, index both
-PDFs and check whether a chunk from the correct page is in the top 4.
-    pdfplumber  - the original extraction (Arabic comes out reversed)
-    pymupdf     - PyMuPDF text layer, cleaned, no OCR
-    pymupdf+ocr - the app's method: PyMuPDF, OCR for pages that fail the check
+Retrieval: for each configuration, index both PDFs and check the top-k chunks.
+    page recall - a chunk from the correct page is in the top k
+    fact recall - a chunk in the top k contains the fact itself (stricter)
+Configurations, each adding one change to the one before:
+    pdfplumber           the original extraction (Arabic comes out reversed)
+    pymupdf              PyMuPDF text layer, cleaned, no OCR
+    pymupdf+ocr          + OCR for pages that fail the quality check
+    +translation         + search with the question translated into the other language
+    +1000-char chunks    + bigger chunks
+The translation configurations need OPENAI_API_KEY (one cheap call per question).
 
-Answers (--answers, needs OPENAI_API_KEY, costs a few cents): every
-question is answered with the app's method and graded by the LLM against
-the reference answer; questions without an answer must be refused.
+Answers (--answers): every question is answered with the app's settings and
+graded by the LLM against the reference answer; unanswerable questions must be refused.
 
-    python scripts/evaluate.py
-    python scripts/evaluate.py --answers [--agent]
+    python scripts/evaluate.py --answers
+    python scripts/evaluate.py --model intfloat/multilingual-e5-base   # compare embedding models
 
-Writes data/results/eval_report.json and eval_summary.md (with _agent for --agent).
+Writes data/results/eval_report[_<model>].json and eval_summary[_<model>].md.
 """
 
 import argparse
 import json
 import logging
+import os
 import sys
 import time
+from dataclasses import dataclass
 from pathlib import Path
 
 sys.path.append(".")
+os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
 from langchain_core.documents import Document
 
@@ -34,23 +41,52 @@ from src.document_ingestion.document_processor import DocumentProcessor
 from src.evaluation.metrics import (
     answer_language, direction, has_citation, is_refusal, relevant_rank, retrieval_summary,
 )
-from src.vectorstore.vectorstore import TOP_K, VectorStore, e5_embeddings
+from src.nodes.nodes import RAGNodes
+from src.vectorstore.vectorstore import EMBEDDING_MODEL, TOP_K, VectorStore, e5_embeddings
 
 QUESTIONS = Path("data/eval/questions.json")
 PDFS = [config.DOCS_DIR / "uae_labour_law_ar.pdf", config.DOCS_DIR / "attention.pdf"]
 RESULTS_DIR = Path("data/results")
-METHODS = ["pdfplumber", "pymupdf", "pymupdf+ocr"]
+GROUPS = ["all", "en->ar", "ar->ar", "en->en", "ar->en", "cross-lingual"]
 
 JUDGE_PROMPT = """You grade answers from a question-answering system.
-The reference answer contains the facts that matter. The answer may be in
-a different language from the reference; that is fine.
+The answer may be in a different language from the reference; that is fine.
 
 Question: {question}
 Reference answer: {reference}
 System answer: {answer}
 
-Is the system answer correct, i.e. does it state the key facts of the
-reference without contradicting them? Reply with one word: CORRECT or WRONG."""
+Reply CORRECT only if the system answer states every key fact of the reference
+(numbers, durations, percentages, conditions) and contradicts none of them.
+Extra correct detail is fine. Otherwise reply WRONG. Reply with one word."""
+
+
+@dataclass
+class Setup:
+    name: str
+    extraction: str
+    translate: bool = False
+    chunk_size: int = config.CHUNK_SIZE
+
+
+SETUPS = [
+    Setup("pdfplumber", "pdfplumber"),
+    Setup("pymupdf", "pymupdf"),
+    Setup("pymupdf+ocr", "pymupdf+ocr"),
+    Setup("+translation", "pymupdf+ocr", translate=True),
+    Setup("+1000-char chunks", "pymupdf+ocr", translate=True, chunk_size=1000),
+]
+APP_SETUP = SETUPS[3]  # the app's settings: OCR, translation, 500-character chunks
+
+
+class CachedTranslationNodes(RAGNodes):
+    """Translate each question once, however many setups use it."""
+    translations = {}
+
+    def translate(self, question: str) -> str:
+        if question not in self.translations:
+            self.translations[question] = super().translate(question)
+        return self.translations[question]
 
 
 def pdfplumber_pages(path: Path) -> list[Document]:
@@ -62,45 +98,43 @@ def pdfplumber_pages(path: Path) -> list[Document]:
                 for i, page in enumerate(pdf.pages) if (text := (page.extract_text() or "").strip())]
 
 
-def load_pages(method: str) -> list[Document]:
-    if method == "pdfplumber":
+def load_pages(extraction: str) -> list[Document]:
+    if extraction == "pdfplumber":
         return [p for pdf in PDFS for p in pdfplumber_pages(pdf)]
-    processor = DocumentProcessor(use_ocr=(method == "pymupdf+ocr"))
+    processor = DocumentProcessor(use_ocr=(extraction == "pymupdf+ocr"))
     return [p for pdf in PDFS for p in processor.load_pdf(pdf)]
 
 
-def evaluate_retrieval(method: str, questions: list, embedding) -> tuple:
-    processor = DocumentProcessor(config.CHUNK_SIZE, config.CHUNK_OVERLAP)
-    pages = load_pages(method)
-    chunks = processor.split(pages)
+def build_retriever(setup: Setup, embedding):
+    processor = DocumentProcessor(setup.chunk_size, max(50, setup.chunk_size // 10))
+    chunks = processor.split(load_pages(setup.extraction))
     store = VectorStore(embedding)
     store.add_documents(chunks)
-    retriever = store.get_retriever(TOP_K)
+    return store.get_retriever(TOP_K), len(chunks)
 
+
+def evaluate_retrieval(setup: Setup, questions: list, embedding, llm) -> tuple:
+    retriever, n_chunks = build_retriever(setup, embedding)
+    nodes = CachedTranslationNodes(retriever, llm, translate_query=setup.translate, k=TOP_K)
     rows, start = [], time.perf_counter()
-    for item in questions:
-        if item["source"] is None:
-            continue
-        ranks = relevant_rank(retriever.invoke(item["question"]), item)
-        rows.append({"id": item["id"], "direction": direction(item), "rank": ranks})
-    ms_per_query = (time.perf_counter() - start) * 1000 / max(len(rows), 1)
+    for item in [q for q in questions if q["source"]]:
+        docs = nodes.search(item["question"])
+        rows.append({"id": item["id"], "direction": direction(item),
+                     "page_rank": relevant_rank(docs, item), "fact_rank": relevant_rank(docs, item, fact=True)})
+    ms_per_query = (time.perf_counter() - start) * 1000 / len(rows)
 
-    groups = {"all": [r["rank"] for r in rows]}
-    for name in ["en->ar", "ar->ar", "en->en", "ar->en"]:
-        groups[name] = [r["rank"] for r in rows if r["direction"] == name]
-    groups["cross-lingual"] = groups["en->ar"] + groups["ar->en"]
-    summary = {name: retrieval_summary(ranks) for name, ranks in groups.items()}
-    summary["chunks"] = len(chunks)
-    summary["ocr_pages"] = sum(p.metadata.get("method") == "ocr" for p in pages)
-    summary["ms_per_query"] = round(ms_per_query, 1)
+    summary = {"chunks": n_chunks, "ms_per_query": round(ms_per_query, 1)}
+    for level in ["page", "fact"]:
+        ranks = {g: [r[f"{level}_rank"] for r in rows if g == "all" or r["direction"] == g] for g in GROUPS[:-1]}
+        ranks["cross-lingual"] = ranks["en->ar"] + ranks["ar->en"]
+        summary[level] = {g: retrieval_summary(ranks[g]) for g in GROUPS}
     return summary, rows, retriever
 
 
-def evaluate_answers(questions: list, retriever, use_agent: bool) -> tuple:
+def evaluate_answers(questions: list, retriever, llm, use_agent: bool) -> tuple:
     from src.graph_builder.graph_builder import GraphBuilder
 
-    llm = config.get_llm()
-    graph = GraphBuilder(retriever, llm, use_agent=use_agent)
+    graph = GraphBuilder(retriever, llm, use_agent=use_agent, translate_query=APP_SETUP.translate)
     rows = []
     for item in questions:
         answer = graph.run(item["question"]).get("answer", "")
@@ -133,51 +167,56 @@ def evaluate_answers(questions: list, retriever, use_agent: bool) -> tuple:
 
 
 def markdown_summary(report: dict) -> str:
-    lines = ["# Evaluation", "", f"{report['questions']} questions, top-{TOP_K} retrieval.", "",
-             "## Retrieval: recall@4 (MRR)", "",
-             "| Method | All | EN→AR | AR→AR | EN→EN | AR→EN | Cross-lingual |",
-             "|---|---|---|---|---|---|---|"]
-    for method, s in report["retrieval"].items():
-        cells = [f"{s[g]['recall_at_k']:.0%} ({s[g]['mrr']:.2f})"
-                 for g in ["all", "en->ar", "ar->ar", "en->en", "ar->en", "cross-lingual"]]
-        lines.append(f"| {method} | " + " | ".join(cells) + " |")
+    lines = ["# Evaluation", "",
+             f"{report['questions']} questions, embedding model `{report['model']}`, top-{TOP_K} chunks.", "",
+             "## Retrieval: fact recall@6 (page recall@6)", "",
+             "| Setup | All | EN→AR | AR→AR | EN→EN | AR→EN | Cross-lingual | MRR (fact) |",
+             "|---|---|---|---|---|---|---|---|"]
+    for name, s in report["retrieval"].items():
+        cells = [f"{s['fact'][g]['recall_at_k']:.0%} ({s['page'][g]['recall_at_k']:.0%})" for g in GROUPS]
+        lines.append(f"| {name} | " + " | ".join(cells) + f" | {s['fact']['all']['mrr']:.2f} |")
     if "answers" in report:
-        lines += ["", "## Answers", ""]
-        for key, value in report["answers"].items():
-            lines.append(f"- {key}: {value}")
+        lines += ["", f"## Answers ({APP_SETUP.name} settings)", ""]
+        lines += [f"- {key}: {value}" for key, value in report["answers"].items()]
     return "\n".join(lines) + "\n"
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--answers", action="store_true", help="also grade LLM answers (needs OPENAI_API_KEY)")
+    parser.add_argument("--answers", action="store_true", help="also grade LLM answers")
     parser.add_argument("--agent", action="store_true", help="grade agent mode instead of retrieve-then-answer")
-    parser.add_argument("--methods", nargs="*", default=METHODS, choices=METHODS)
+    parser.add_argument("--model", default=EMBEDDING_MODEL, help="embedding model to evaluate")
     args = parser.parse_args()
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logging.basicConfig(level=logging.WARNING, format="%(message)s")
 
     missing = [str(p) for p in PDFS if not p.exists()]
     if missing:
         sys.exit(f"Missing {missing}. Run: python scripts/download_data.py")
+    llm = config.get_llm() if os.getenv("OPENAI_API_KEY") else None
+    if llm is None:
+        print("No OPENAI_API_KEY: skipping the translation setups and the answers.")
 
     questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))
-    embedding = e5_embeddings()
-    report = {"questions": len(questions), "retrieval": {}, "per_question": {}}
-    retriever = None
-    for method in args.methods:
-        print(f"Retrieval with {method}...", flush=True)
-        summary, rows, retriever = evaluate_retrieval(method, questions, embedding)
-        report["retrieval"][method] = summary
-        report["per_question"][method] = rows
+    embedding = e5_embeddings(args.model)
+    report = {"questions": len(questions), "model": args.model, "retrieval": {}, "per_question": {}}
+    app_retriever = None
+    for setup in SETUPS:
+        if setup.translate and llm is None:
+            continue
+        print(f"Retrieval: {setup.name}...", flush=True)
+        summary, rows, retriever = evaluate_retrieval(setup, questions, embedding, llm)
+        report["retrieval"][setup.name] = summary
+        report["per_question"][setup.name] = rows
+        if setup == APP_SETUP:
+            app_retriever = retriever
 
-    if args.answers:
-        if args.methods[-1] != "pymupdf+ocr":
-            sys.exit("--answers uses the app's method; include pymupdf+ocr last in --methods")
+    if args.answers and app_retriever is not None:
         print("Answering and grading...", flush=True)
-        report["answers"], report["per_question"]["answers"] = evaluate_answers(questions, retriever, args.agent)
+        report["answers"], report["per_question"]["answers"] = evaluate_answers(
+            questions, app_retriever, llm, args.agent)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    suffix = "_agent" if args.agent else ""
+    suffix = ("_agent" if args.agent else "") + ("" if args.model == EMBEDDING_MODEL else "_" + args.model.split("/")[-1])
     (RESULTS_DIR / f"eval_report{suffix}.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     summary = markdown_summary(report)

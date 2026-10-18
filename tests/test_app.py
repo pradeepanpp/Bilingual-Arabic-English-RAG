@@ -48,7 +48,7 @@ def test_ask_a_question_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "DOCS_DIR", docs)
     monkeypatch.setattr(config, "UPLOAD_DIR", tmp_path / "uploads")
     monkeypatch.setattr(config, "URL_FILE", tmp_path / "url.txt")
-    monkeypatch.setattr(config, "get_llm", lambda: fake_llm("Maternity leave is 60 days [1]."))
+    monkeypatch.setattr(config, "get_llm", lambda: fake_llm("ما مدة إجازة الوضع؟", "Maternity leave is 60 days [1]."))
     monkeypatch.setattr(vectorstore, "e5_embeddings", lambda: DeterministicFakeEmbedding(size=16))
 
     app = AppTest.from_file(APP, default_timeout=60).run()

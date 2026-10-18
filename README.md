@@ -16,7 +16,7 @@ Ask questions in Arabic or English about Arabic and English documents, and get a
 **Solution.** A retrieval-augmented generation (RAG) pipeline with one multilingual index for both languages:
 
 1. **Reading:** PyMuPDF extracts the text layer; every page is checked for missing, reversed or broken Arabic text, and only failing pages are read with EasyOCR (Arabic + English). OCR results are cached.
-2. **Retrieval:** multilingual-E5 embeddings in FAISS, so an English question can find an Arabic passage and the reverse.
+2. **Retrieval:** multilingual-E5 embeddings in FAISS. Each question is searched as asked and translated into the other language, and the two result lists are merged, so an English question finds Arabic passages and the reverse.
 3. **Answering:** GPT-4o-mini answers only from numbered sources and cites them, or replies that the documents do not contain the answer. An optional agent mode lets the model run its own searches.
 
 **Results** on 48 questions about a 100-page Arabic law and an English research paper: see [Results](#results).
@@ -55,7 +55,8 @@ The UAE labour law PDF (Federal Decree-Law No. 33 of 2021, 100 pages) has a text
 | OCR | EasyOCR, Arabic + English, 200 dpi; cached in `data/cache/` per file and page |
 | Chunks | 500 characters with 50 overlap, split at paragraph, sentence and Arabic punctuation (، ؟) |
 | Embeddings | `intfloat/multilingual-e5-small` with the `query:` / `passage:` prefixes the model was trained with |
-| Answer | Sources are numbered `[1] file, page n`; the model must cite them or say the documents do not contain the answer |
+| Search | The question and its translation (GPT-4o-mini) are both searched; the lists are merged with reciprocal rank fusion and the top 6 chunks are kept |
+| Answer | Sources are numbered `[1] file, page n`; the model must cite them or say the documents do not contain the answer. The answer language is set in code from the question's script |
 
 ---
 
@@ -76,8 +77,8 @@ PDFs in `data/docs/` and web pages in `data/url.txt` are indexed at startup; mor
 **Evaluation**
 
 ```bash
-python scripts/evaluate.py                 # retrieval, three extraction methods (no API key needed)
-python scripts/evaluate.py --answers       # + answer grading with GPT-4o-mini (a few cents)
+python scripts/evaluate.py --answers                               # all setups + graded answers (a few cents)
+python scripts/evaluate.py --model intfloat/multilingual-e5-base   # compare another embedding model
 ```
 
 **Tests:** `pytest -q` (offline: fake LLM and fake embeddings; nothing is downloaded). CI runs lint and the tests on every push.

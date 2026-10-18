@@ -8,13 +8,14 @@ from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
 from langchain_core.tools import tool
 
-from src.nodes.nodes import LANGUAGE_RULES, NOT_FOUND, format_sources
+from src.nodes.nodes import LANGUAGE_NAMES, NOT_FOUND, format_sources, resolve_language
 from src.state.rag_state import RAGState
 
-SYSTEM_PROMPT = f"""You answer questions about the user's documents.
-- Use the search_documents tool, rephrasing or translating the query if the first search is not enough.
+SYSTEM_PROMPT = """You answer questions about the user's documents, which are in Arabic and English.
+- Use the search_documents tool. Search again in the other language if the first search is not enough.
 - Answer only from what the tool returns and cite the passages you use, like [1] or [2].
-- If the documents do not contain the answer, reply only: "{NOT_FOUND['en']}" (in Arabic: "{NOT_FOUND['ar']}")."""
+- If the documents do not contain the answer, reply only: "{not_found}"
+- Answer in {language}."""
 
 
 class AgentNodes:
@@ -36,9 +37,10 @@ class AgentNodes:
             found.extend(new)
             return format_sources(new, start)
 
-        agent = create_agent(self.llm, tools=[search_documents], system_prompt=SYSTEM_PROMPT)
-        rule = LANGUAGE_RULES.get(state.answer_language, LANGUAGE_RULES["auto"])
-        result = agent.invoke({"messages": [HumanMessage(content=f"{state.question}\n\n({rule})")]})
+        language = resolve_language(state.question, state.answer_language)
+        prompt = SYSTEM_PROMPT.format(not_found=NOT_FOUND[language], language=LANGUAGE_NAMES[language])
+        agent = create_agent(self.llm, tools=[search_documents], system_prompt=prompt)
+        result = agent.invoke({"messages": [HumanMessage(content=state.question)]})
         messages = result.get("messages", [])
         answer = messages[-1].content if messages else ""
         return {"answer": answer or "Could not generate an answer.", "retrieved_docs": found}

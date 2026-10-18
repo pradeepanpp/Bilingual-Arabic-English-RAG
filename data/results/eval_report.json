@@ -1,0 +1,2307 @@
+{
+  "questions": 48,
+  "model": "intfloat/multilingual-e5-small",
+  "retrieval": {
+    "pdfplumber": {
+      "chunks": 392,
+      "ms_per_query": 29.5,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.214,
+          "recall_at_k": 0.333,
+          "recall_at_k_ci95": [
+            0.21,
+            0.484
+          ],
+          "mrr": 0.266
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.0,
+          "recall_at_k_ci95": [
+            0.0,
+            0.215
+          ],
+          "mrr": 0.0
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.2,
+          "recall_at_k_ci95": [
+            0.057,
+            0.51
+          ],
+          "mrr": 0.067
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.7,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.8
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.25,
+          "recall_at_k": 0.375,
+          "recall_at_k_ci95": [
+            0.137,
+            0.694
+          ],
+          "mrr": 0.312
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.091,
+          "recall_at_k": 0.136,
+          "recall_at_k_ci95": [
+            0.047,
+            0.333
+          ],
+          "mrr": 0.114
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.071,
+          "recall_at_k": 0.262,
+          "recall_at_k_ci95": [
+            0.153,
+            0.411
+          ],
+          "mrr": 0.152
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.0,
+          "recall_at_k_ci95": [
+            0.0,
+            0.215
+          ],
+          "mrr": 0.0
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.1,
+          "recall_at_k_ci95": [
+            0.018,
+            0.404
+          ],
+          "mrr": 0.05
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.3,
+          "recall_at_k": 0.8,
+          "recall_at_k_ci95": [
+            0.49,
+            0.943
+          ],
+          "mrr": 0.52
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.25,
+          "recall_at_k_ci95": [
+            0.071,
+            0.591
+          ],
+          "mrr": 0.083
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.091,
+          "recall_at_k_ci95": [
+            0.025,
+            0.278
+          ],
+          "mrr": 0.03
+        }
+      }
+    },
+    "pymupdf": {
+      "chunks": 377,
+      "ms_per_query": 16.0,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.357,
+          "recall_at_k": 0.714,
+          "recall_at_k_ci95": [
+            0.564,
+            0.828
+          ],
+          "mrr": 0.483
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.071,
+          "recall_at_k": 0.5,
+          "recall_at_k_ci95": [
+            0.268,
+            0.732
+          ],
+          "mrr": 0.214
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.2,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.445
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.7,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.783
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.625,
+          "recall_at_k_ci95": [
+            0.306,
+            0.863
+          ],
+          "mrr": 0.625
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.273,
+          "recall_at_k": 0.545,
+          "recall_at_k_ci95": [
+            0.347,
+            0.731
+          ],
+          "mrr": 0.364
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.19,
+          "recall_at_k": 0.333,
+          "recall_at_k_ci95": [
+            0.21,
+            0.484
+          ],
+          "mrr": 0.248
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.071,
+          "recall_at_k_ci95": [
+            0.013,
+            0.315
+          ],
+          "mrr": 0.036
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.0,
+          "recall_at_k": 0.1,
+          "recall_at_k_ci95": [
+            0.018,
+            0.404
+          ],
+          "mrr": 0.05
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.8,
+          "recall_at_k_ci95": [
+            0.49,
+            0.943
+          ],
+          "mrr": 0.617
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.5,
+          "recall_at_k_ci95": [
+            0.215,
+            0.785
+          ],
+          "mrr": 0.406
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.136,
+          "recall_at_k": 0.227,
+          "recall_at_k_ci95": [
+            0.101,
+            0.434
+          ],
+          "mrr": 0.17
+        }
+      }
+    },
+    "pymupdf+ocr": {
+      "chunks": 450,
+      "ms_per_query": 17.4,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.548,
+          "recall_at_k": 0.738,
+          "recall_at_k_ci95": [
+            0.589,
+            0.847
+          ],
+          "mrr": 0.613
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.143,
+          "recall_at_k": 0.5,
+          "recall_at_k_ci95": [
+            0.268,
+            0.732
+          ],
+          "mrr": 0.243
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.9,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.95
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.7,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.783
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.625,
+          "recall_at_k_ci95": [
+            0.306,
+            0.863
+          ],
+          "mrr": 0.625
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.318,
+          "recall_at_k": 0.545,
+          "recall_at_k_ci95": [
+            0.347,
+            0.731
+          ],
+          "mrr": 0.382
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.429,
+          "recall_at_k": 0.643,
+          "recall_at_k_ci95": [
+            0.492,
+            0.77
+          ],
+          "mrr": 0.502
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.071,
+          "recall_at_k": 0.357,
+          "recall_at_k_ci95": [
+            0.163,
+            0.612
+          ],
+          "mrr": 0.154
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.9,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.95
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.8,
+          "recall_at_k_ci95": [
+            0.49,
+            0.943
+          ],
+          "mrr": 0.617
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.5,
+          "recall_at_k_ci95": [
+            0.215,
+            0.785
+          ],
+          "mrr": 0.406
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.182,
+          "recall_at_k": 0.409,
+          "recall_at_k_ci95": [
+            0.233,
+            0.613
+          ],
+          "mrr": 0.245
+        }
+      }
+    },
+    "+translation": {
+      "chunks": 450,
+      "ms_per_query": 992.3,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.571,
+          "recall_at_k": 0.905,
+          "recall_at_k_ci95": [
+            0.779,
+            0.962
+          ],
+          "mrr": 0.69
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.214,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.685,
+            0.987
+          ],
+          "mrr": 0.439
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.9
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.833
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.625,
+          "recall_at_k": 0.75,
+          "recall_at_k_ci95": [
+            0.409,
+            0.929
+          ],
+          "mrr": 0.688
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.364,
+          "recall_at_k": 0.864,
+          "recall_at_k_ci95": [
+            0.667,
+            0.953
+          ],
+          "mrr": 0.53
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.429,
+          "recall_at_k": 0.881,
+          "recall_at_k_ci95": [
+            0.75,
+            0.948
+          ],
+          "mrr": 0.587
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.143,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.685,
+            0.987
+          ],
+          "mrr": 0.38
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.9
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.5,
+          "recall_at_k": 0.8,
+          "recall_at_k_ci95": [
+            0.49,
+            0.943
+          ],
+          "mrr": 0.633
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.75,
+          "recall_at_k_ci95": [
+            0.409,
+            0.929
+          ],
+          "mrr": 0.5
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.227,
+          "recall_at_k": 0.864,
+          "recall_at_k_ci95": [
+            0.667,
+            0.953
+          ],
+          "mrr": 0.423
+        }
+      }
+    },
+    "+1000-char chunks": {
+      "chunks": 232,
+      "ms_per_query": 32.5,
+      "page": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.476,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.81,
+            0.975
+          ],
+          "mrr": 0.663
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.214,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.785,
+            1.0
+          ],
+          "mrr": 0.53
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.8,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.875
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.6,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.717
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.75,
+          "recall_at_k_ci95": [
+            0.409,
+            0.929
+          ],
+          "mrr": 0.562
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.273,
+          "recall_at_k": 0.909,
+          "recall_at_k_ci95": [
+            0.722,
+            0.975
+          ],
+          "mrr": 0.542
+        }
+      },
+      "fact": {
+        "all": {
+          "n": 42,
+          "hit_at_1": 0.452,
+          "recall_at_k": 0.881,
+          "recall_at_k_ci95": [
+            0.75,
+            0.948
+          ],
+          "mrr": 0.631
+        },
+        "en->ar": {
+          "n": 14,
+          "hit_at_1": 0.214,
+          "recall_at_k": 0.929,
+          "recall_at_k_ci95": [
+            0.685,
+            0.987
+          ],
+          "mrr": 0.506
+        },
+        "ar->ar": {
+          "n": 10,
+          "hit_at_1": 0.7,
+          "recall_at_k": 1.0,
+          "recall_at_k_ci95": [
+            0.722,
+            1.0
+          ],
+          "mrr": 0.825
+        },
+        "en->en": {
+          "n": 10,
+          "hit_at_1": 0.6,
+          "recall_at_k": 0.9,
+          "recall_at_k_ci95": [
+            0.596,
+            0.982
+          ],
+          "mrr": 0.717
+        },
+        "ar->en": {
+          "n": 8,
+          "hit_at_1": 0.375,
+          "recall_at_k": 0.625,
+          "recall_at_k_ci95": [
+            0.306,
+            0.863
+          ],
+          "mrr": 0.5
+        },
+        "cross-lingual": {
+          "n": 22,
+          "hit_at_1": 0.273,
+          "recall_at_k": 0.818,
+          "recall_at_k_ci95": [
+            0.615,
+            0.927
+          ],
+          "mrr": 0.504
+        }
+      }
+    }
+  },
+  "per_question": {
+    "pdfplumber": [
+      {
+        "id": "law-en-01",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-02",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-03",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-04",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-05",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-07",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-08",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-10",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-11",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-12",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-13",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-14",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-01",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-02",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-04",
+        "direction": "ar->ar",
+        "page_rank": 6,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-05",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-06",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-07",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-08",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-09",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-10",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-01",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-02",
+        "direction": "en->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-03",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 5
+      },
+      {
+        "id": "att-en-04",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-05",
+        "direction": "en->en",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-06",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-07",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-08",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-09",
+        "direction": "en->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-10",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-01",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 6
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-04",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-05",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-06",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-07",
+        "direction": "ar->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-ar-08",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      }
+    ],
+    "pymupdf": [
+      {
+        "id": "law-en-01",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-02",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-03",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-04",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-05",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": 6,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-07",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-08",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-10",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-11",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-12",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-13",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-14",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-01",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-02",
+        "direction": "ar->ar",
+        "page_rank": 6,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": 4,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-04",
+        "direction": "ar->ar",
+        "page_rank": 5,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-05",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-06",
+        "direction": "ar->ar",
+        "page_rank": 3,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-07",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-08",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-09",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "law-ar-10",
+        "direction": "ar->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-01",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-02",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-03",
+        "direction": "en->en",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-04",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-05",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-06",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-07",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-08",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-en-09",
+        "direction": "en->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-10",
+        "direction": "en->en",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-ar-01",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 4
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-04",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-05",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-06",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-07",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-08",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      }
+    ],
+    "pymupdf+ocr": [
+      {
+        "id": "law-en-01",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-02",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-03",
+        "direction": "en->ar",
+        "page_rank": 5,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-04",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-05",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 5
+      },
+      {
+        "id": "law-en-07",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-08",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-10",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-en-11",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-12",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-13",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-14",
+        "direction": "en->ar",
+        "page_rank": 5,
+        "fact_rank": 5
+      },
+      {
+        "id": "law-ar-01",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-02",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-04",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-05",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-06",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-07",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-08",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-09",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-10",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-01",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-02",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-03",
+        "direction": "en->en",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-04",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-05",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-06",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-07",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-08",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-en-09",
+        "direction": "en->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-10",
+        "direction": "en->en",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-ar-01",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 4
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-04",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-05",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-06",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-07",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-08",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      }
+    ],
+    "+translation": [
+      {
+        "id": "law-en-01",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-02",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-en-03",
+        "direction": "en->ar",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-04",
+        "direction": "en->ar",
+        "page_rank": 5,
+        "fact_rank": 5
+      },
+      {
+        "id": "law-en-05",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-07",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-08",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-10",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-11",
+        "direction": "en->ar",
+        "page_rank": 5,
+        "fact_rank": 5
+      },
+      {
+        "id": "law-en-12",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-13",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-en-14",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-ar-01",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-02",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-04",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-05",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-06",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-07",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-08",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-09",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-10",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-01",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-02",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-03",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-04",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-05",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-06",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-07",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-08",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-09",
+        "direction": "en->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-10",
+        "direction": "en->en",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-ar-01",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 4
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 4
+      },
+      {
+        "id": "att-ar-04",
+        "direction": "ar->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-ar-05",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-06",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-07",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-08",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      }
+    ],
+    "+1000-char chunks": [
+      {
+        "id": "law-en-01",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-02",
+        "direction": "en->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-en-03",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": null
+      },
+      {
+        "id": "law-en-04",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-05",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-06",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-07",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-08",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-09",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-10",
+        "direction": "en->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-en-11",
+        "direction": "en->ar",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "law-en-12",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-en-13",
+        "direction": "en->ar",
+        "page_rank": 6,
+        "fact_rank": 6
+      },
+      {
+        "id": "law-en-14",
+        "direction": "en->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-01",
+        "direction": "ar->ar",
+        "page_rank": 4,
+        "fact_rank": 4
+      },
+      {
+        "id": "law-ar-02",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-03",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-04",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-05",
+        "direction": "ar->ar",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "law-ar-06",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-07",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-08",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-09",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "law-ar-10",
+        "direction": "ar->ar",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-01",
+        "direction": "en->en",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-en-02",
+        "direction": "en->en",
+        "page_rank": 3,
+        "fact_rank": 3
+      },
+      {
+        "id": "att-en-03",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-04",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-05",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-06",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-07",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-en-08",
+        "direction": "en->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-en-09",
+        "direction": "en->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-en-10",
+        "direction": "en->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-01",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-02",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-03",
+        "direction": "ar->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-ar-04",
+        "direction": "ar->en",
+        "page_rank": 2,
+        "fact_rank": 2
+      },
+      {
+        "id": "att-ar-05",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-06",
+        "direction": "ar->en",
+        "page_rank": 2,
+        "fact_rank": null
+      },
+      {
+        "id": "att-ar-07",
+        "direction": "ar->en",
+        "page_rank": 1,
+        "fact_rank": 1
+      },
+      {
+        "id": "att-ar-08",
+        "direction": "ar->en",
+        "page_rank": null,
+        "fact_rank": null
+      }
+    ],
+    "answers": [
+      {
+        "id": "law-en-01",
+        "answer": "The maximum probation period for a new employee is six months from the date of starting work [3].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-02",
+        "answer": "An employer must give at least 14 days written notice to end a contract during the probation period [3].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-03",
+        "answer": "The minimum age for employing a person is fifteen years old, as stated in the sources [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-04",
+        "answer": "A juvenile may work a maximum of six hours per day, and this must include one or more rest periods totaling at least one hour. Additionally, the juvenile should not work more than four consecutive hours without a break [5].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-05",
+        "answer": "The maximum normal working hours are eight hours per day and forty-eight hours per week [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-06",
+        "answer": "An employee is entitled to extra pay for overtime hours calculated based on their basic wage, with a minimum increase of 25% for overtime hours beyond regular working hours. If the overtime occurs between 10 PM and 4 AM, the employee is entitled to a minimum increase of 50% on their basic wage for those hours [2][3].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-07",
+        "answer": "An employee is entitled to a minimum of thirty days of paid annual leave for each year of service [3].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-08",
+        "answer": "Maternity leave is 60 days, with the first 45 days paid in full and the following 15 days paid at half salary [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-09",
+        "answer": "After the probation period, a worker is entitled to a maximum of 90 days of sick leave per year, which is paid as follows: the first 15 days are paid at full salary, the next 30 days at half salary, and the remaining days are unpaid [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-10",
+        "answer": "Employees are entitled to five days of bereavement leave in the event of the death of a spouse [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-11",
+        "answer": "The minimum notice period to terminate an employment contract is 30 days, and the maximum is 90 days, depending on the duration of service. Specifically, if the service duration is less than 5 years, the notice period is 30 days; if it is more than 5 years but less than 10 years, it is 60 days; and if it exceeds 10 years, it is 90 days [2][5].",
+        "refused": false,
+        "language_ok": true,
+        "correct": false,
+        "cited": true
+      },
+      {
+        "id": "law-en-12",
+        "answer": "The end-of-service gratuity for a foreign full-time worker is calculated based on the following criteria: \n\n1. For the first five years of service, the worker is entitled to 21 days of basic salary for each year of service.\n2. For any additional years beyond the first five, the worker is entitled to 30 days of basic salary for each year of service.\n3. The gratuity for any incomplete year of service is calculated proportionally based on the time worked, provided that the worker has completed at least one year of continuous service [3][6].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-13",
+        "answer": "A non-compete clause can last for a maximum of two years from the date the contract ends [4].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-en-14",
+        "answer": "A working parent is entitled to 5 days of parental leave to care for their child, which can be taken continuously or intermittently within 6 months from the date of the child's birth [4].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-01",
+        "answer": "تستحق العاملة إجازة وضع مدتها 60 ستين يوماً، حيث تكون 45 خمسة وأربعين يوماً الأولى بأجر كامل، و15 خمسة عشر يوماً التي تليها بنصف أجر [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-02",
+        "answer": "يستحق العامل إجازة سنوية بأجر كامل لا تقل عن ثلاثين يوماً عن كل سنة من سنوات خدمته لمدة، ويومين عن كل شهر إذا كانت مدة خدمته تزيد على ستة أشهر وتقل عن سنة [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-03",
+        "answer": "الحد الأقصى لساعات العمل الإضافية في اليوم الواحد هو ساعتين، ولا يجوز تشغيل العامل أكثر من ذلك إلا وفق الشروط والضوابط المحددة [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-04",
+        "answer": "يجوز منح العامل إجازة دراسية لمدة عشرة أيام عمل في السنة الواحدة، شريطة أن يكون العامل منتسبًا أو منتظمًا بالدراسة في إحدى المؤسسات التعليمية المعتمدة في الدولة وأن تكون مدة خدمته لدى صاحب العمل لا تقل عن سنتين [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-05",
+        "answer": "المدة القصوى لفترة التجربة هي ستة أشهر من تاريخ مباشرة العمل [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-06",
+        "answer": "أقصى مدة يجوز فيها إيقاف العامل مؤقتاً عن العمل بسبب تحقيق تأديبي هي ثلاثين يوماً [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-07",
+        "answer": "الحد الأقصى لنسبة الخصم من أجر العامل هو 50% من الأجر، وذلك في حالة تعدد الأسباب الموجبة للاقتطاع أو الخصم [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-08",
+        "answer": "لا يستحق العامل إجازة مرضية مدفوعة الأجر خلال فترة التجربة ومع ذلك يجوز لصاحب العمل منحه إجازة مرضية بدون أجر بناءً على تقرير طبي صادر عن الجهة الطبية يتضمن ضرورة منح الإجازة [3].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-09",
+        "answer": "يحق للعامل راحة أسبوعية مدفوعة لا تقل عن يوم واحد وفقاً لما ينص عليه عقد العمل أو اللائحة التنظيمية للعمل [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "law-ar-10",
+        "answer": "إذا استدعت ظروف العمل تشغيل العامل أثناء أي من العطلات الرسمية، يجب على صاحب العمل تعويضه بيوم آخر للراحة مقابل كل يوم يعمل فيه أثناء العطلة، أو أن يدفع له أجر ذلك اليوم حسب الأجر المقرر بالنسبة إلى أيام العمل العادية مضافًا إليه زيادة لا تقل عن 50% من الأجر الأساسي لذلك اليوم [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-01",
+        "answer": "The Transformer encoder stack is composed of a stack of N = 6 identical layers [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-02",
+        "answer": "The base Transformer uses 8 parallel attention heads [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-03",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": false,
+        "cited": false
+      },
+      {
+        "id": "att-en-04",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": false,
+        "cited": false
+      },
+      {
+        "id": "att-en-05",
+        "answer": "The models were trained on one machine with 8 NVIDIA P100 GPUs. The base models were trained for a total of 100,000 steps or 12 hours [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-06",
+        "answer": "The learning rate schedule used 4000 warmup steps [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-07",
+        "answer": "The value of label smoothing used during training was εls = 0.1 [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-08",
+        "answer": "The dot products are scaled by \\( \\frac{1}{\\sqrt{d_k}} \\) to counteract the effect of extremely small gradients that can occur during training. This scaling helps to maintain stable gradients and improve the learning process in the attention mechanism [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-en-09",
+        "answer": "The Transformer encodes the position of tokens using positional encodings in both the encoder and decoder stacks. It employs sinusoidal positional encoding with learned positional embeddings, which results in nearly identical performance to the base model [3][5].",
+        "refused": false,
+        "language_ok": true,
+        "correct": false,
+        "cited": true
+      },
+      {
+        "id": "att-en-10",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": false,
+        "cited": false
+      },
+      {
+        "id": "att-ar-01",
+        "answer": "عدد الطبقات في مُرمِّز نموذج المحوِّل (Transformer) هو 6 طبقات متطابقة [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-ar-02",
+        "answer": "حقق النموذج الكبير نتيجة BLEU قدرها 41.0 في الترجمة من الإنجليزية إلى الفرنسية [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": false,
+        "cited": true
+      },
+      {
+        "id": "att-ar-03",
+        "answer": "معدل الإسقاط (dropout) المستخدم في النموذج الأساسي هو 0.3 [4].",
+        "refused": false,
+        "language_ok": true,
+        "correct": false,
+        "cited": true
+      },
+      {
+        "id": "att-ar-04",
+        "answer": "عدد رؤوس الانتباه المتوازية في النموذج هو 8 رؤوس [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-ar-05",
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
+        "language_ok": true,
+        "correct": false,
+        "cited": false
+      },
+      {
+        "id": "att-ar-06",
+        "answer": "استغرق تدريب النموذج الكبير 3.5 أيام على 8 وحدات معالجة رسومية من نوع NVIDIA P100 [2].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-ar-07",
+        "answer": "المُحسِّن المستخدم في تدريب النموذج هو Adam مع القيم β1 = 0.9، β2 = 0.98 و ε = 10−9 [1].",
+        "refused": false,
+        "language_ok": true,
+        "correct": true,
+        "cited": true
+      },
+      {
+        "id": "att-ar-08",
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
+        "language_ok": true,
+        "correct": false,
+        "cited": false
+      },
+      {
+        "id": "none-en-01",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      },
+      {
+        "id": "none-en-02",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      },
+      {
+        "id": "none-en-03",
+        "answer": "The documents do not contain this information.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      },
+      {
+        "id": "none-ar-01",
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      },
+      {
+        "id": "none-ar-02",
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      },
+      {
+        "id": "none-ar-03",
+        "answer": "لا تحتوي المستندات على هذه المعلومة.",
+        "refused": true,
+        "language_ok": true,
+        "correct": true
+      }
+    ]
+  },
+  "answers": {
+    "mode": "retrieve-then-answer",
+    "answer_accuracy": 0.786,
+    "answerable_n": 42,
+    "false_refusals": 5,
+    "citation_rate": 0.881,
+    "unanswerable_refused": "6/6",
+    "language_match": 1.0
+  }
+}

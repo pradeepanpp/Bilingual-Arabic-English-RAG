@@ -50,6 +50,15 @@ def test_relevant_rank():
     assert relevant_rank(docs[:1], item) is None
 
 
+def test_fact_level_needs_the_evidence_in_the_chunk():
+    item = {"source": "law.pdf", "pages": [33], "evidence": ["60", "45"]}
+    heading = Document(page_content="Article 30: maternity leave", metadata={"source": "law.pdf", "page": 32})
+    fact = Document(page_content="60 days: 45 on full pay", metadata={"source": "law.pdf", "page": 32})
+    assert relevant_rank([heading, fact], item) == 1
+    assert relevant_rank([heading, fact], item, fact=True) == 2
+    assert relevant_rank([heading], item, fact=True) is None
+
+
 def test_retrieval_summary():
     s = retrieval_summary([1, 2, None, 4])
     assert s["n"] == 4 and s["hit_at_1"] == 0.25 and s["recall_at_k"] == 0.75

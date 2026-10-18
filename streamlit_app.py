@@ -71,6 +71,8 @@ def main():
         st.header("Settings")
         use_agent = st.checkbox("Agent mode", help="The model chooses its own searches")
         arabic = st.checkbox("Answer in Arabic (RTL)")
+        both_languages = st.checkbox("Search in both languages", value=True,
+                                     help="Also searches with the question translated into the other language")
         include_urls = st.checkbox("Include web pages from data/url.txt", value=True)
         st.divider()
         uploads = st.file_uploader("Add PDFs", type="pdf", accept_multiple_files=True)
@@ -98,7 +100,7 @@ def main():
     if submitted and question.strip():
         start = time.time()
         with st.spinner("Searching..."):
-            result = GraphBuilder(retriever, llm, use_agent=use_agent).run(
+            result = GraphBuilder(retriever, llm, use_agent=use_agent, translate_query=both_languages).run(
                 question.strip(), answer_language="ar" if arabic else "auto")
         elapsed = time.time() - start
         answer = result.get("answer", "")

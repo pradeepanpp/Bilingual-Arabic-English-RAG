@@ -4,7 +4,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 
 EMBEDDING_MODEL = "intfloat/multilingual-e5-small"
-TOP_K = 4
+TOP_K = 6
 
 
 def e5_embeddings(model_name: str = EMBEDDING_MODEL):
